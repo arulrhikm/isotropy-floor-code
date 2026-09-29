@@ -1,0 +1,11 @@
+==========================================================================
+INCREMENTAL RECOMPILATION -- one-gate edits touch <= 7 residue coordinates
+==========================================================================
+  n=5 edit CCZ(0, 3, 4): recomputed 7 coords (cone of B), 18 untouched, W 11 -> 12  [matches from-scratch]
+  n=5 edit CCZ(0, 1, 4): recomputed 7 coords (cone of B), 18 untouched, W 11 -> 12  [matches from-scratch]
+  n=5 edit CCZ(0, 1, 4): recomputed 7 coords (cone of B), 18 untouched, W 11 -> 12  [matches from-scratch]
+  n=5 edit CCZ(2, 3, 4): recomputed 7 coords (cone of B), 18 untouched, W 11 -> 8  [matches from-scratch]
+  n=6 edit CCZ(0, 4, 5): recomputed 7 coords (cone of B), 34 untouched, W 14 -> 15  [matches from-scratch]
+  n=6 edit CCZ(1, 3, 4): recomputed 7 coords (cone of B), 34 untouched, W 14 -> 17  [matches from-scratch]
+  n=6 edit CCZ(1, 3, 4): recomputed 7 coords (cone of B), 34 untouched, W 14 -> 17  [matches from-scratch]
+  n=6 edit CCZ(1, 2, 3): recomputed 7 coords (cone of B), 34 untouched, W 14 -> 13  [matches from-scratch]

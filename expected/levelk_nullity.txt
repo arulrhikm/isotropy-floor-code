@@ -1,0 +1,44 @@
+SELF-TEST / counterexample: f = e_4 on n=5  (U = prod_{|S|=4} C^3Z_S)
+  d_4 = 1  (all-ones in R: True)
+  Delta_(all-ones) f has degree 2  (all-ones in A: False)
+  nu = 5,  n - d_4 = 4   -> identity nu=n-d_k is FALSE
+  moment floor 2(n-d_4) = 8,  nullity floor = 5  -> moment still beats nullity
+  radical filtration dims (R^(1)=R ... R^(k-2)=A): {1: 1, 2: 0}
+
+k=3 (CCZ-type): identity nu=n-d SHOULD hold (A=R)
+
+=== level k=3: natural gate (-1)^f, f homogeneous deg 3 ===
+  n=3:  93 gates | A<=R:93/93 | nu>=n-d_k:93/93 | nu==n-d_k:93/93 (strict nu>:0) | moment-floor 2(n-d_k)>=nu:93/93
+  n=4: 194 gates | A<=R:194/194 | nu>=n-d_k:194/194 | nu==n-d_k:194/194 (strict nu>:0) | moment-floor 2(n-d_k)>=nu:194/194
+  n=5: 200 gates | A<=R:200/200 | nu>=n-d_k:200/200 | nu==n-d_k:200/200 (strict nu>:0) | moment-floor 2(n-d_k)>=nu:200/200
+  n=6: 200 gates | A<=R:200/200 | nu>=n-d_k:200/200 | nu==n-d_k:200/200 (strict nu>:0) | moment-floor 2(n-d_k)>=nu:200/200
+
+k=4 (C^3Z-type): identity SHOULD break (A subsetneq R possible)
+
+=== level k=4: natural gate (-1)^f, f homogeneous deg 4 ===
+  n=4: 108 gates | A<=R:108/108 | nu>=n-d_k:108/108 | nu==n-d_k:108/108 (strict nu>:0) | moment-floor 2(n-d_k)>=nu:108/108
+  n=5: 195 gates | A<=R:195/195 | nu>=n-d_k:195/195 | nu==n-d_k:91/195 (strict nu>:104) | moment-floor 2(n-d_k)>=nu:195/195
+  n=6: 200 gates | A<=R:200/200 | nu>=n-d_k:200/200 | nu==n-d_k:197/200 (strict nu>:3) | moment-floor 2(n-d_k)>=nu:200/200
+
+k=5:
+
+=== level k=5: natural gate (-1)^f, f homogeneous deg 5 ===
+  n=5:  57 gates | A<=R:57/57 | nu>=n-d_k:57/57 | nu==n-d_k:57/57 (strict nu>:0) | moment-floor 2(n-d_k)>=nu:57/57
+  n=6: 116 gates | A<=R:116/116 | nu>=n-d_k:116/116 | nu==n-d_k:31/116 (strict nu>:85) | moment-floor 2(n-d_k)>=nu:116/116
+  n=7: 120 gates | A<=R:120/120 | nu>=n-d_k:120/120 | nu==n-d_k:120/120 (strict nu>:0) | moment-floor 2(n-d_k)>=nu:120/120
+
+Reading: A<=R and nu>=n-d_k are UNCONDITIONAL. nu==n-d_k is a k=3 phenomenon; at k>=4
+nullity can strictly exceed n-d_k (radical misses higher-derivative structure). The
+isotropy floor 2(n-d_k) still typically beats nu, but the floor is max(nu, 2(n-d_k)).
+
+=== SIGN SEARCH k=4: can nu exceed 2(n-d_k)?  (worst margin nu-2(n-d_k)) ===
+  tested 1658 gates (10 with d_k>n/2).
+  worst margin nu-2(n-d_k) overall: -3   [e_k: n=5 d_k=1 nu=5 2(n-d_k)=8]
+  worst margin in the d_k>n/2 regime: -4
+  => 2(n-d_k) >= nu holds in all tested cases.
+
+=== SIGN SEARCH k=5: can nu exceed 2(n-d_k)?  (worst margin nu-2(n-d_k)) ===
+  tested 1325 gates (0 with d_k>n/2).
+  worst margin nu-2(n-d_k) overall: -3   [random: n=7 d_k=2 nu=7 2(n-d_k)=10]
+  worst margin in the d_k>n/2 regime: no d_k>n/2 gate found
+  => 2(n-d_k) >= nu holds in all tested cases.

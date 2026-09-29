@@ -1,0 +1,21 @@
+building the T-count table by BFS
+  T-count 1: 72 new unitaries (cumulative 96)
+  T-count 2: 144 new unitaries (cumulative 240)
+  T-count 3: 288 new unitaries (cumulative 528)
+  T-count 4: 576 new unitaries (cumulative 1104)
+  T-count 5: 1152 new unitaries (cumulative 2256)
+  T-count 6: 2304 new unitaries (cumulative 4560)
+  T-count 7: 4608 new unitaries (cumulative 9168)
+  T-count 8: 9216 new unitaries (cumulative 18384)
+  T-count 9: 18432 new unitaries (cumulative 36816)
+ L  t(T (HT)^L)  expected  nu
+ 0            1         1  1
+ 1            2         2  2
+ 2            3         3  2
+ 3            4         4  2
+ 4            5         5  2
+ 5            6         6  2
+ 6            7         7  2
+ 7            8         8  2
+ 8            9         9  2
+RESULT: t(T(HT)^L) = L+1 and nu <= 2 for all L

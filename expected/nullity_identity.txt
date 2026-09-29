@@ -1,0 +1,17 @@
+self-test: CCZ has d=0, |A|=1, nu=3 =>
+  d=0, |R|=1, |A|=1, A==R:True  OK
+
+[identity scan] A==R on 1600/1600 random cubics over n=[4, 5, 6, 7]   ALL PASS
+
+[delta gap]   gate                         n  d  nu  2(n-d)  delta  gap  (nu=n-d?)
+  CCZ                           3  0   3      6      7    1   yes
+  2 parallel Toffolis           6  0   6     12     13    1   yes
+  3-local line f_5              5  0   5     10     11    1   yes
+  3-local line f_6              6  0   6     12     13    1   yes
+  elem symmetric e_3 (n=5)      5  0   5     10     11    1   yes
+  elem symmetric e_3 (n=6) [deg]  6  1   5     10     11    1   yes
+  cyclic cubic (n=6)            6  0   6     12     15    3   yes
+
+[gap scan]  testing delta >= 2(n-d)+1  (thm:cubicLB proves +1 only for d=0)
+  n=4: 600 cubics | gap distribution {1: 600} | min gap per d {1: 1} | gap<1: 0
+  n=5: 600 cubics | gap distribution {1: 600} | min gap per d {0: 1, 2: 1} | gap<1: 0

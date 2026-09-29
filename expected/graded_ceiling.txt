@@ -1,0 +1,26 @@
+==========================================================================
+PART 1 -- locality of a T insertion (closed forms asserted exactly)
+==========================================================================
+  n=3  moments moved per T:  |y|=1->1, |y|=2->3, |y|=3->7   |  row weights 2^(n-|A|) = 4,2,1
+  n=4  moments moved per T:  |y|=1->1, |y|=2->3, |y|=3->7, |y|=4->14   |  row weights 2^(n-|A|) = 8,4,2
+  n=5  moments moved per T:  |y|=1->1, |y|=2->3, |y|=3->7, |y|=4->14, |y|=5->25   |  row weights 2^(n-|A|) = 16,8,4
+  n=6  moments moved per T:  |y|=1->1, |y|=2->3, |y|=3->7, |y|=4->14, |y|=5->25, |y|=6->41   |  row weights 2^(n-|A|) = 32,16,8
+  VERDICT: forward map is graded/triangular (only A subset y move, Theta(|y|^3)
+           of them, exactly 1 for a single-qubit T); backward map is
+           2^(n-|A|)-degenerate.  Surgical forward, hopeless backward.
+
+==========================================================================
+PART 2 -- graded greedy vs the canonical ceiling W(s)
+==========================================================================
+  family                 n   W(s)  greedy  gr+desc   delta  verdict
+  CCZ                    3      7       7        7       7  =delta (=delta, EXACT)
+  3-local line f_5       5     11      11       11      11  =delta (=delta, EXACT)
+  star S_5               5     20      11       11      11  BEATS W by 9 (=delta, EXACT)
+  fan-out m=2            5     12      12       11      11  BEATS W by 1 (=delta, EXACT)
+  3-local line f_6       6     14      14       14      13  ties W
+  star S_6               6     20      11       11      11  BEATS W by 9 (=delta, EXACT)
+  Toffoli layer m=2      6     14      14       14      13  ties W
+  wrapped cycle C_6      6     18      18       18      17  ties W
+  complete cubic e_3     6     20      16       16      11  BEATS W by 4
+
+  graded greedy (or +descent) strictly beat the canonical ceiling on 4/9 families

@@ -1,0 +1,15 @@
+self-tests:
+  delta(CCZ)=7, delta(CS)=3  OK
+
+COMPARISON (stabilizer nullity vs this paper vs true T-count):
+  Toffoli / CCZ                n= 3 d=0  nu= 3  bound(2n+1 if nd)=  7  delta=  7[decode]  TIGHT
+  2 parallel Toffoli (CCZ^2)   n= 6 d=0  nu= 6  bound(2n+1 if nd)= 13  delta= 13[decode]  TIGHT
+  3 parallel Toffoli           n= 9 d=0  nu= 9  bound(2n+1 if nd)= 19  delta= 19[thm]  TIGHT
+  4 parallel Toffoli           n=12 d=0  nu=12  bound(2n+1 if nd)= 25  delta= 25[thm]  TIGHT
+  3-local line f_5             n= 5 d=0  nu= 5  bound(2n+1 if nd)= 11  delta= 11[decode]  TIGHT
+  3-local line f_6             n= 6 d=0  nu= 6  bound(2n+1 if nd)= 13  delta= 13[decode]  TIGHT
+  elem. symmetric e_3 (n=5)    n= 5 d=0  nu= 5  bound(2n+1 if nd)= 11  delta= 11[decode]  TIGHT
+  complete cubic (n=6)         n= 6 d=1  nu= 6  bound(2n+1 if nd)= 10  delta= 11[decode]  gap 1
+
+Reading: this paper's bound = 2*nullity (+1), and equals the true T-count on
+every decodable row -> exactly tight, while nullity is off by ~2x.

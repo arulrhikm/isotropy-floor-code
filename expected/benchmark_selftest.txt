@@ -1,0 +1,4 @@
+selftest ok
+teleport tensor check ok: tof_3  T 21 -> 15
+teleport tensor check ok: mod5_4  T 28 -> 8
+teleport tensor check ok: barenco_tof_3  T 28 -> 16

@@ -1,0 +1,46 @@
+circuit              result                                          n    CCZ    d  floor
+adder_8              CNOT ['a1', 'b1']: output wire used as a con
+barenco_tof_10       CCZ ['10', '18', '19']: 2 output legs
+barenco_tof_3        CCZ ['3', '4', '5']: 2 output legs
+barenco_tof_4        CCZ ['4', '6', '7']: 2 output legs
+barenco_tof_5        CCZ ['5', '8', '9']: 2 output legs
+csla_mux_3           CNOT ['c0', 'd0']: output wire used as a con
+csum_mux_9           CCZ ['e10', 'a0', 'e30']: 3 output legs
+cycle_17_3           CCZ ['c', 'd', '12']: 3 output legs
+fprenorm             Toffoli ['t', 'x2', 'q1']: target/controls n
+gf2^10_mult          ok                                             30    172    0     61
+gf2^128_mult         ok                                            384 226912    0    769
+gf2^16_mult          ok                                             48    909    0     97
+gf2^256_mult         ok                                            768 1633084    0   1537
+gf2^32_mult          ok                                             96   6726    0    193
+gf2^4_mult           ok                                             12     26    0     25
+gf2^5_mult           ok                                             15     38    0     31
+gf2^64_mult          ok                                            192  28889    0    385
+gf2^6_mult           ok                                             18     71    0     37
+gf2^7_mult           ok                                             21    105    0     43
+gf2^8_mult           ok                                             24    153    0     49
+gf2^9_mult           ok                                             27    127    0     55
+grover_5             CCZ ['a', 'b', '0']: 3 output legs
+ham15-high           CCZ ['f', 'j', '4']: 3 output legs
+ham15-low            CNOT ['k', 'a']: output wire used as a contr
+ham15-med            CCZ ['l', 'm', '1']: 3 output legs
+hwb10                CCZ ['j', 'c', 'a']: 3 output legs
+hwb11                CCZ ['k', 'c', 'a']: 3 output legs
+hwb12                CCZ ['l', 'c', 'e']: 3 output legs
+hwb6                 CCZ ['a', 'b', 'c']: 3 output legs
+hwb8                 CCZ ['b', 'c', 'h']: 3 output legs
+mod5_4               ok                                              5      4    2      7
+mod_adder_1024       CCZ ['x9', 'x19', 'x20']: 2 output legs
+mod_adder_1048576    CCZ ['x19', 'x39', 'x40']: 2 output legs
+mod_mult_55          CCZ ['x1', 'y4', 'y3']: 2 output legs
+mod_red_21           CCZ ['x1', 'x2', 'c2']: 3 output legs
+qcla_adder_10        CCZ ['c0', 'b1', 'c1']: 2 output legs
+qcla_com_7           CCZ ['c4', 'b6', 'c5']: 2 output legs
+qcla_mod_7           CCZ ['c0', 'c2', 'c1']: 3 output legs
+qft_4                CNOT ['x1', 'x2'] across frames
+rc_adder_6           CNOT ['a1', 'b1']: output wire used as a con
+tof_10               CCZ ['3', '11', '12']: 2 output legs
+tof_3                CCZ ['3', '5', '4']: 2 output legs
+tof_4                CCZ ['3', '5', '6']: 2 output legs
+tof_5                CCZ ['3', '6', '7']: 2 output legs
+vbe_adder_3          CCZ ['3', '5', '6']: 2 output legs

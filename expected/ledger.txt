@@ -1,0 +1,19 @@
+=== n=5, m=2, s=1  (forest possible: splice engine applies) ===
+  blocks                              d floor ledger delta  verdict
+  ((0, 1, 2), (0, 3, 4))              0    11     11    11  ATTAINED
+  -> 1/1 attain the ledger
+
+=== n=6, m=2, s=0  (forest possible: splice engine applies) ===
+  blocks                              d floor ledger delta  verdict
+  ((0, 1, 2), (3, 4, 5))              0    13     13    13  ATTAINED
+  -> 1/1 attain the ledger
+
+=== n=6, m=3, s=3  (S >= M: NO forest exists) ===
+  blocks                              d floor ledger delta  verdict
+  ((0, 1, 2), (0, 3, 4), (1, 3, 5))   0    13     13    15  ABOVE by 2
+  -> 0/1 attain the ledger
+
+=== n=6, m=4, s=6  (S >= M: NO forest exists) ===
+  blocks                              d floor ledger delta  verdict
+  ((0, 1, 2), (0, 3, 4), (1, 3, 5), (2, 4, 5))  0    13     13    15  ABOVE by 2
+  -> 0/1 attain the ledger

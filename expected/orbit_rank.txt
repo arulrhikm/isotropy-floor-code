@@ -1,0 +1,19 @@
+SELF-TEST: delta GL-invariant on 200 basis changes: 0 mismatches (must be 0)
+
+Building GL samples...
+  n=4: 1500 basis changes (exhaustive subset)
+  n=5: 1500 basis changes (random sample)
+
+n=4  gates=60
+  d* stable across the orbit (must be all)   : 0 / 60 violations
+  r_min < r  (basis change lowers the rank)  : 0  (0.0%)
+  mean floor gain when it improves           : 0.00
+  floor exactly tight, ORIGINAL basis        : 17  (28.3%)
+  floor exactly tight, ORBIT-MINIMISED       : 17  (28.3%)
+
+n=5  gates=60
+  d* stable across the orbit (must be all)   : 0 / 60 violations
+  r_min < r  (basis change lowers the rank)  : 0  (0.0%)
+  mean floor gain when it improves           : 0.00
+  floor exactly tight, ORIGINAL basis        : 6  (10.0%)
+  floor exactly tight, ORBIT-MINIMISED       : 6  (10.0%)

@@ -1,0 +1,4 @@
+numpy>=1.26
+scipy>=1.11
+ortools==9.15.6755
+pyzx==0.10.3

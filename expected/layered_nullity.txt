@@ -1,0 +1,11 @@
+self-tests: {'nu_CCZ': 3, 'nu_CCZ_H_CCZ': 6, 'nu_CS': 2, 'nu_CS_H_CS': 4, 'nu_CS_CS': 0} OK
+A1 n=2: additive fraction per layer type: H^n=30/30, CZ.CNOT.H^n.CZ=30/30, sqrtX^n=30/30, H(x)I=14/30, I=5/30
+A1 n=3: additive fraction per layer type: H^n=30/30, CZ.CNOT.H^n.CZ=30/30, sqrtX^n=30/30, H(x)I=1/30, I=0/30
+A1 n=4: additive fraction per layer type: H^n=30/30, CZ.CNOT.H^n.CZ=30/30, sqrtX^n=30/30, H(x)I=1/30, I=0/30
+A2 n=2: structural count agrees 10/10; B invertible in 5 cases, additive in 5
+A2 n=3: structural count agrees 10/10; B invertible in 6 cases, additive in 6
+A2 n=4: structural count agrees 10/10; B invertible in 4 cases, additive in 4
+L3 n=2: two-layer additive 10/10; three layers hit the cap 2n=4 in 8/10; sample rows (nu_i | nu after 2,3,4 layers): [2, 2, 2, 1]|[4, 4, 4]; [1, 2, 1, 1]|[3, 4, 4]; [2, 2, 2, 2]|[4, 4, 4]
+L3 n=3: two-layer additive 10/10; three layers hit the cap 2n=6 in 5/10; sample rows (nu_i | nu after 2,3,4 layers): [2, 3, 3, 3]|[5, 6, 6]; [2, 3, 2, 3]|[5, 6, 6]; [3, 2, 2, 3]|[5, 5, 6]
+L3 n=4: two-layer additive 10/10; three layers hit the cap 2n=8 in 9/10; sample rows (nu_i | nu after 2,3,4 layers): [4, 1, 4, 3]|[5, 5, 8]; [4, 4, 4, 4]|[8, 8, 8]; [4, 4, 4, 4]|[8, 8, 8]
+RESULT: all checks passed

@@ -1,0 +1,76 @@
+Testing whether filtration rungs give a valid floor tighter than 2(n-d_k).
+Key candidate F_{k-2} = 2*nu: does delta_k >= 2*nu at k>=4?  (it is 2nu+1 at k=3)
+
+=== level k=3: filtration floors vs exact delta_k ===
+  n=4: 187 gates
+    F_1=2(n-dimR^1)     : VALID                                    | strictly>F0 on   0/187 | max recovered +0
+  n=5: 200 gates
+    F_1=2(n-dimR^1)     : VALID                                    | strictly>F0 on   0/200 | max recovered +0
+
+=== level k=4: filtration floors vs exact delta_k ===
+  n=4: 96 gates
+    F_1=2(n-dimR^1)     : VALID                                    | strictly>F0 on   0/96 | max recovered +0
+    F_2=2(n-dimR^2)     : VALID                                    | strictly>F0 on   0/96 | max recovered +0
+    F0+rho2             : VALID                                    | strictly>F0 on   0/96 | max recovered +0
+  n=5: 197 gates
+    F_1=2(n-dimR^1)     : VALID                                    | strictly>F0 on   0/197 | max recovered +0
+    F_2=2(n-dimR^2)     : VALID                                    | strictly>F0 on  99/197 | max recovered +2
+    F0+rho2             : VALID                                    | strictly>F0 on  99/197 | max recovered +1
+  n=6: 200 gates
+    F_1=2(n-dimR^1)     : VALID                                    | strictly>F0 on   0/200 | max recovered +0
+    F_2=2(n-dimR^2)     : VALID                                    | strictly>F0 on   3/200 | max recovered +2
+    F0+rho2             : VALID                                    | strictly>F0 on   3/200 | max recovered +1
+
+=== level k=5: filtration floors vs exact delta_k ===
+  n=5: 66 gates
+    F_1=2(n-dimR^1)     : VALID                                    | strictly>F0 on   0/66 | max recovered +0
+    F_2=2(n-dimR^2)     : VALID                                    | strictly>F0 on   0/66 | max recovered +0
+    F_3=2(n-dimR^3)     : VALID                                    | strictly>F0 on   0/66 | max recovered +0
+    F0+rho2             : VALID                                    | strictly>F0 on   0/66 | max recovered +0
+  n=6: 146 gates
+    F_1=2(n-dimR^1)     : VALID                                    | strictly>F0 on   0/146 | max recovered +0
+    F_2=2(n-dimR^2)     : VALID                                    | strictly>F0 on  99/146 | max recovered +2
+    F_3=2(n-dimR^3)     : VALID                                    | strictly>F0 on  99/146 | max recovered +2
+    F0+rho2             : VALID                                    | strictly>F0 on  99/146 | max recovered +1
+
+Reading: a candidate is a genuinely tighter poly floor iff it is VALID on all gates AND
+strictly exceeds F0 on some.  The deepest such rung is the tightest radical-filtration floor.
+
+=== level k=3: delta_k((-1)^f) >= 2*nu  (both from the SAME natural gate) ===
+  self-test single C^{2}Z: delta=7 (expect 2^k-1=7)  OK
+  n=4: 111 gates | delta>=2nu: 111/111 | worst delta-2nu = 1
+  n=5: 120 gates | delta>=2nu: 120/120 | worst delta-2nu = 1
+  n=6: 120 gates | delta>=2nu: 120/120 | worst delta-2nu = 1
+
+=== level k=4: delta_k((-1)^f) >= 2*nu  (both from the SAME natural gate) ===
+  self-test single C^{3}Z: delta=15 (expect 2^k-1=15)  OK
+  n=4: 50 gates | delta>=2nu: 50/50 | worst delta-2nu = 7
+  n=5: 117 gates | delta>=2nu: 117/117 | worst delta-2nu = 5
+  n=6: 120 gates | delta>=2nu: 120/120 | worst delta-2nu = 3
+
+=== level k=5: delta_k((-1)^f) >= 2*nu  (both from the SAME natural gate) ===
+  self-test single C^{4}Z: delta=31 (expect 2^k-1=31)  OK
+  n=5: 43 gates | delta>=2nu: 43/43 | worst delta-2nu = 21
+  n=6: 99 gates | delta>=2nu: 99/99 | worst delta-2nu = 19
+
+Note: delta_k >= 2*nu is verified here on the natural gate (-1)^f (both delta_k and nu from
+the SAME gate). Proven at k=3 (=2nu+1); open at k>=4 -- the isotropy proof reaches only
+2(n-d_k) since it forces V^perp <= R (top radical), not V^perp <= A.
+
+=== level k=3: is delta_k>=2nu a RANK corollary? (min residue of (-1)^f) ===
+  n=4: 116 gates | rank(Y)>=nu: 116/116 | V^perp<=A: 116/116 | isotropy slack (delta>2rank): 116/116
+  n=5: 120 gates | rank(Y)>=nu: 120/120 | V^perp<=A: 120/120 | isotropy slack (delta>2rank): 120/120
+  n=6: 120 gates | rank(Y)>=nu: 120/120 | V^perp<=A: 120/120 | isotropy slack (delta>2rank): 120/120
+
+=== level k=4: is delta_k>=2nu a RANK corollary? (min residue of (-1)^f) ===
+  n=4: 60 gates | rank(Y)>=nu: 60/60 | V^perp<=A: 60/60 | isotropy slack (delta>2rank): 60/60
+  n=5: 115 gates | rank(Y)>=nu: 49/115 | V^perp<=A: 49/115 | isotropy slack (delta>2rank): 115/115
+  n=6: 120 gates | rank(Y)>=nu: 119/120 | V^perp<=A: 119/120 | isotropy slack (delta>2rank): 120/120
+
+=== level k=5: is delta_k>=2nu a RANK corollary? (min residue of (-1)^f) ===
+  n=5: 50 gates | rank(Y)>=nu: 50/50 | V^perp<=A: 50/50 | isotropy slack (delta>2rank): 50/50
+  n=6: 99 gates | rank(Y)>=nu: 31/99 | V^perp<=A: 31/99 | isotropy slack (delta>2rank): 99/99
+
+Reading: if rank(Y)>=nu holds on min residues, delta_k=|S|>=2rank>=2nu is a THEOREM.
+If instead isotropy is slack (delta>2rank) with rank<nu, the doubling is BEYOND first-order
+isotropy.

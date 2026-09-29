@@ -1,0 +1,9 @@
+temporary-AND templates found: 2  e.g. [((1, 7, 7, 1), 2), ((7, 1, 1, 7), 6)]
+PART 1 random in-class: 500 circuits, all t >= delta(U)+A; min slack 0
+  named CCZ-via-ancilla m=1      t=  8  delta(U)=  7  A=1  t-(delta+A)=0
+  named CCZ-via-ancilla m=2      t= 16  delta(U)= 13  A=2  t-(delta+A)=1
+  named CCZ-shared-scratch m=1   t=  8  delta(U)=  7  A=1  t-(delta+A)=0
+  named CCZ-shared-scratch m=2   t= 16  delta(U)= 13  A=2  t-(delta+A)=1
+PART 2 ladder: 486 level-3 circuits, t - delta(U): min 1, mean 13.74; violations of t >= delta(U): 0
+PART 2 oddmid: 252 level-3 circuits, t - delta(U): min 1, mean 12.55; violations of t >= delta(U): 0
+PART 2 both  : 253 level-3 circuits, t - delta(U): min 1, mean 12.34; violations of t >= delta(U): 0

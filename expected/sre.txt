@@ -1,0 +1,55 @@
+Does the amortized stabilizer Renyi entropy beat the moment-radical nullity ON OUR CLASS?
+
+The amortized SRE of Zhu-Chen-Shen-Liu-Yu-Wang (arXiv:2409.06659) is sometimes sharper than
+nullity, for instance on the three-qubit quantum Fourier transform (QFT3 gets >= 6 against
+nullity's 4).
+But QFT3 is NOT a diagonal level-three gate, so that datum says nothing about the class the
+cubic moment form is about.  This script settles the on-class question by census.
+
+Comparison bound.  Zhu et al., Corollary 4:
+
+        t(U)  >=  M_2^A(U) / (2 - log2 3)  >=  M_2(|Phi_U>) / (2 - log2 3),
+
+with |Phi_U> the Choi state and 2 - log2 3 = M_2^A(T) = 0.4150375.  The right-hand
+(Choi-state) form is the one that is classically evaluable from a description of the gate,
+and the one their own numerics use, so it is what we compare against.  M_2 is the stabilizer
+2-Renyi entropy of Leone-Oliviero-Hamma:
+
+        M_2(psi)  =  log2 d  -  log2 sum_P <psi|P|psi>^4,     d = dim,  P over all Paulis.
+
+Reduction.  For a diagonal gate U = diag(omega^phi(x)) the Choi state
+is 2^{-n/2} sum_x omega^phi(x) |x>|x>, and a CNOT ladder (Clifford, so M_2-invariant) maps
+|x>|x> -> |x>|0>.  Since M_2 is additive and vanishes on stabilizer states,
+
+        M_2(|Phi_U>)  =  M_2(|psi_phi>),      |psi_phi> = 2^{-n/2} sum_x omega^phi(x)|x>,
+
+an n-qubit phase state, not a 2n-qubit one.  Its Pauli spectrum is a Walsh-Hadamard transform
+per shift: with g_a(x) = omega^{-(phi(x+a)-phi(x))},
+
+        sum_P <P>^4  =  sum_{a,b} |ghat_a(b)|^4,   ghat_a(b) = 2^{-n} sum_x g_a(x)(-1)^{b.x},
+
+so the whole 4^{2n} Pauli sum costs 2^n transforms of length 2^n.  n=6 is instant.
+`--check` verifies the reduction against the direct 2n-qubit sum and reproduces the
+published QFT3 value.
+
+Compared.  On every GL(n,2)-orbit of cubic forms (the census of cubic_orbit_atlas):
+    nu    = n - d          the moment-radical nullity, the incumbent adaptive floor
+    floor = 2nu + 1        this paper's unitary floor (prop:nullity)
+    sre   = ceil(M_2/(2-log2 3))    the incumbent SRE floor
+    delta = exact T-count  (Amy-Mosca coset decoding; n <= 6)
+==============================================================================
+SELF-TESTS
+==============================================================================
+  M_2(|T>)           = 0.4150374993   expected log2(4/3) = 0.4150374993
+  2 - log2 3         = 0.4150374993   (= M_2^A(T), Zhu et al. Thm 2)
+  Pauli spectrum     : max |WHT route - explicit 4^m Pauli loop| = 4.44e-16 on random states, m<=3
+  Choi reduction     : max |M_2(Phi_U) - M_2(psi_phi)| = 6.66e-16 over all cubics at n<=3
+  QFT2: M_2(Phi) = 1.192645  ->  t >= 3
+  QFT3: M_2(Phi) = 2.142019  ->  t >= 6   [Zhu et al. report >= 6]
+  gate         M_2(Phi)   SRE   nu  2nu+1  delta
+  T            0.415037     1    1      3      1   [not pure-cubic: 2nu+1 does not apply, use 2(n-d*)-r]
+  CS           1.192645     3    2      5      3   [not pure-cubic: 2nu+1 does not apply, use 2(n-d*)-r]
+  CCZ          1.540568     4    3      7      7
+  CCZ+CCZ      3.081137     8    6     13     13
+
+  SELF-TESTS PASSED

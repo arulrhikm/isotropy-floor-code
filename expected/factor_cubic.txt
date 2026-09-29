@@ -1,0 +1,22 @@
+=== STAR: Adj = K_N (complete graph), n = N+1 odd ===
+n=  3  N=  2  rank(Adj)=  2/2  gram_ok=True  weight=  7  floor=2n+1=  7  moments_ok=True
+n=  5  N=  4  rank(Adj)=  4/4  gram_ok=True  weight= 11  floor=2n+1= 11  moments_ok=True
+n=  7  N=  6  rank(Adj)=  6/6  gram_ok=True  weight= 15  floor=2n+1= 15  moments_ok=True
+n=  9  N=  8  rank(Adj)=  8/8  gram_ok=True  weight= 19  floor=2n+1= 19  moments_ok=True
+n= 11  N= 10  rank(Adj)= 10/10  gram_ok=True  weight= 23  floor=2n+1= 23  moments_ok=True
+n= 13  N= 12  rank(Adj)= 12/12  gram_ok=True  weight= 27  floor=2n+1= 27  moments_ok=True
+n= 15  N= 14  rank(Adj)= 14/14  gram_ok=True  weight= 31  floor=2n+1= 31  moments_ok=True
+n= 17  N= 16  rank(Adj)= 16/16  gram_ok=True  weight= 35  floor=2n+1= 35  moments_ok=True
+n= 19  N= 18  rank(Adj)= 18/18  gram_ok=True  weight= 39  floor=2n+1= 39  moments_ok=True
+
+=== GENERAL: random invertible Adj (alternating, zero diagonal) ===
+n=  5  invertible Adj  gram_ok=True  weight= 11  floor= 11  meets=True  moments_ok=True
+n=  5  invertible Adj  gram_ok=True  weight= 11  floor= 11  meets=True  moments_ok=True
+n=  7  invertible Adj  gram_ok=True  weight= 15  floor= 15  meets=True  moments_ok=True
+n=  7  invertible Adj  gram_ok=True  weight= 15  floor= 15  meets=True  moments_ok=True
+n=  9  invertible Adj  gram_ok=True  weight= 19  floor= 19  meets=True  moments_ok=True
+n=  9  invertible Adj  gram_ok=True  weight= 19  floor= 19  meets=True  moments_ok=True
+n= 11  invertible Adj  gram_ok=True  weight= 23  floor= 23  meets=True  moments_ok=True
+n= 11  invertible Adj  gram_ok=True  weight= 23  floor= 23  meets=True  moments_ok=True
+n= 13  invertible Adj  gram_ok=True  weight= 27  floor= 27  meets=True  moments_ok=True
+n= 13  invertible Adj  gram_ok=True  weight= 27  floor= 27  meets=True  moments_ok=True

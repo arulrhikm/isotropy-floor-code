@@ -1,0 +1,9 @@
+n=3: {('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 1576, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 1922, ('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 502}
+n=4: {('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 2196, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 1380, ('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 424}
+n=5: {('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 206, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 2019, ('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 1775}
+n=6: {('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 2259, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 1593, ('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 148}
+n=7: {('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 64, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 2180, ('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 1756}
+n=8: {('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 2284, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 1695, ('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 21}
+n=9: {('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 1750, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 2229, ('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 21}
+n=10: {('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 1732, ('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 2265, ('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 3}
+n=12: {('floor==2mu', True, 'mu_odd', 1, 'gap', 1): 2225, ('floor==2mu', True, 'mu_odd', 0, 'gap', 0): 1772, ('floor==2mu', False, 'mu_odd', 1, 'gap', 0): 3}

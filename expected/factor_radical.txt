@@ -1,0 +1,43 @@
+=== f = u_0 * qbar, Adj = K_N (the STAR S_n) ===
+n=  3  d=0  floor=2(n-d)+1=  7  2n+1=  7
+n=  5  d=0  floor=2(n-d)+1= 11  2n+1= 11
+n=  7  d=0  floor=2(n-d)+1= 15  2n+1= 15
+n=  9  d=0  floor=2(n-d)+1= 19  2n+1= 19
+n= 11  d=0  floor=2(n-d)+1= 23  2n+1= 23
+n= 13  d=0  floor=2(n-d)+1= 27  2n+1= 27
+n= 15  d=0  floor=2(n-d)+1= 31  2n+1= 31
+
+=== f = u_0 * qbar, random INVERTIBLE Adj ===
+n=  5  |blocks|=  4  rank(Adj)=4  d=0  floor= 11  meets_2n+1=True
+n=  5  |blocks|=  2  rank(Adj)=4  d=0  floor= 11  meets_2n+1=True
+n=  7  |blocks|=  5  rank(Adj)=6  d=0  floor= 15  meets_2n+1=True
+n=  7  |blocks|=  7  rank(Adj)=6  d=0  floor= 15  meets_2n+1=True
+n=  9  |blocks|= 12  rank(Adj)=8  d=0  floor= 19  meets_2n+1=True
+n=  9  |blocks|= 17  rank(Adj)=8  d=0  floor= 19  meets_2n+1=True
+n= 11  |blocks|= 21  rank(Adj)=10  d=0  floor= 23  meets_2n+1=True
+n= 11  |blocks|= 13  rank(Adj)=10  d=0  floor= 23  meets_2n+1=True
+n= 13  |blocks|= 32  rank(Adj)=12  d=0  floor= 27  meets_2n+1=True
+n= 13  |blocks|= 35  rank(Adj)=12  d=0  floor= 27  meets_2n+1=True
+
+=== f = u_0 * qbar, random SINGULAR Adj (control: floor should drop) ===
+n=  7  rank(Adj)=4/6  d=2  floor= 10
+n=  7  rank(Adj)=4/6  d=2  floor= 10
+n=  9  rank(Adj)=6/8  d=2  floor= 14
+n=  9  rank(Adj)=6/8  d=2  floor= 14
+
+=== complete cubic e_3 ===
+  odd n : cor:starexact construction, weight 2n+1, meets the floor
+  even n: rem:e3even construction,    weight 2n-1, one ABOVE the floor 2(n-1)
+n=  3  d=0  floor=  7  construction weight=  7  moments_ok=True  above floor by 0
+n=  4  d=1  floor=  6  construction weight=  7  moments_ok=True  above floor by 1
+n=  5  d=0  floor= 11  construction weight= 11  moments_ok=True  above floor by 0
+n=  6  d=1  floor= 10  construction weight= 11  moments_ok=True  above floor by 1
+n=  7  d=0  floor= 15  construction weight= 15  moments_ok=True  above floor by 0
+n=  8  d=1  floor= 14  construction weight= 15  moments_ok=True  above floor by 1
+n=  9  d=0  floor= 19  construction weight= 19  moments_ok=True  above floor by 0
+n= 10  d=1  floor= 18  construction weight= 19  moments_ok=True  above floor by 1
+n= 11  d=0  floor= 23  construction weight= 23  moments_ok=True  above floor by 0
+n= 12  d=1  floor= 22  construction weight= 23  moments_ok=True  above floor by 1
+n= 13  d=0  floor= 27  construction weight= 27  moments_ok=True  above floor by 0
+n= 14  d=1  floor= 26  construction weight= 27  moments_ok=True  above floor by 1
+n= 15  d=0  floor= 31  construction weight= 31  moments_ok=True  above floor by 0

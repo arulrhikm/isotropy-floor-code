@@ -1,0 +1,5 @@
+exact delta backend: CP-SAT
+B-c n=2: 300 sampled h=n circuits, 169 flat, 0 with non-level-3 P' (expect 0), 0 violations of t >= delta_2n(P'); gap t_raw - delta: min=0, mean=2.01, zero-gap on 45
+B-c n=3: 300 sampled h=n circuits, 108 flat, 0 with non-level-3 P' (expect 0), 0 violations of t >= delta_2n(P'); gap t_raw - delta: min=0, mean=2.81, zero-gap on 28
+B-d CCZ H^3 CCZ: unrestricted delta(CCZ x CCZ) = 13; min over prefix-realizable ancilla-free sets = 14; with one x-variable held on a spare wire throughout = 13
+RESULT: all checks passed

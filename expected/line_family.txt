@@ -1,0 +1,7 @@
+n  naive  best  2n+1  hit?  moments_ok
+ 7     17    15    15   YES   True
+ 8     20    17    17   YES   True
+ 9     23    19    19   YES   True
+10     26    21    21   YES   True
+11     29    23    23   YES   True
+12     32    25    25   YES   True

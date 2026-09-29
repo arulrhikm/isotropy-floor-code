@@ -1,0 +1,37 @@
+self-test OK: delta(CCZ)=7, delta(CS)=3
+
+(1) Universal 1-layer floor delta >= 2(n-d*-r) on random inhomogeneous gates
+     n  trials  min slack      status
+     3      40          0        PASS
+     4      40          1        PASS
+     5      40          2        PASS
+     6      40          5        PASS
+    -> genLB holds on every sampled inhomogeneous gate
+
+(2) Generic non-degeneracy: Pr[d=0] for random 3-local objectives
+     n   Pr[d=0]  trials
+     3    0.5020    4000
+     4    0.0000    4000
+     5    0.8498    4000
+     6    0.9447    4000
+     7    0.9960    4000
+     8    1.0000    4000
+     9    1.0000    4000
+    10    1.0000    4000
+    11    1.0000    4000
+    12    1.0000    4000
+    13    1.0000    4000
+
+(3) Disjoint magic-compression floor: delta(+ g_i) >= 2N+1
+    layer                           N  d  2N+1   delta  status
+    CCZ(012)+CCZ(345)               6  0    13      13  PASS
+    CCZ+CCZ+CCZ (m=3)               9  0    19  (skip)  PASS
+    CCZ(012)+line5(3..7)            8  0    17  (skip)  PASS
+    -> union is non-degenerate and meets the 2N+1 floor
+
+(4) IQP core: delta(D) >= 2n+1 for a non-degenerate cubic core D
+    (T-count is Clifford-bi-invariant, so delta(H^xn D H^xn)=delta(D))
+    n=5: d=0, delta=11, 2n+1=11  PASS
+    n=6: d=0, delta=13, 2n+1=13  PASS
+    n=7: d=0 (delta decode skipped: RM(n-4,n)* too large), non-deg PASS
+    -> Hadamard-free cubic IQP cores inherit the 2n+1 floor

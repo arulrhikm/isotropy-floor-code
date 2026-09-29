@@ -1,0 +1,24 @@
+Does the SRE floor ever OVERTAKE the isotropy floor 2(n-d*)+1?  Yes, from n=9.
+
+CLOSED FORM (verified against the 4^n Pauli sum in sre_vs_nullity).  For a pure-cubic
+phi = 4f, the shifted function g_a = (-1)^{D_a f} has a QUADRATIC exponent, whose Walsh
+spectrum is flat at 2^{-r_a/2} on 2^{r_a} points (r_a = symplectic rank of D_a f).  So
+
+        M_2  =  n  -  log2 sum_{a} 2^{-r_a},       r_0 = 0.
+
+The SRE is thus a SOFT count of derivative ranks; the isotropy floor 2(n-d*) is a HARD count
+of the rank of the moment column span.  That is why they can cross.
+
+Caps.  r_a <= n forces sum_a 2^{-r_a} >= 1 + (2^n-1)2^{-n} -> 2, so M_2 <= n-1 (attained
+iff every nonzero derivative is bent), i.e.
+
+        SRE floor  <=  ceil( (n-1)/(2-log2 3) )  ~  2.4094 (n-1),
+        isotropy floor                           <=  2n+1.
+
+2.4094(n-1) > 2n+1 exactly when n > 8.33.  So from n = 9 there is room, and this hill-climbs
+on the derivative-rank profile to find a gate that uses it.
+
+   n  max M_2  M_2/n  cap n-1  SRE  2nu+1  SRE-(2nu+1)
+   8   5.4226  0.678        7   14     17           -3
+   9   6.4882  0.721        8   16     19           -3
+  10   7.4169  0.742        9   18     21           -3

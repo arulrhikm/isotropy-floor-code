@@ -1,0 +1,6 @@
+(1) carry identity 2(u.x)(v.x) = u.x + v.x - (u^v).x mod 8: True
+(2) #lines of PG(2,2): 7 (expect 7)
+    XOR of all 7 lines = full 7-point set: True
+(3) delta_CS(CCZ) >= ceil(7/3) = 3 (known optimal: 3)
+    parallel-layer bracket: [2m+1, 3m] for m disjoint CCZ
+ALL PASS

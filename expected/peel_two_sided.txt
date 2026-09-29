@@ -1,0 +1,60 @@
+mixed-degree nullity experiment (cubic + CS quadratic + T linear)
+findings: (1) the cubic doubling delta>=2nu FAILS for mixed gates;
+          (2) genLB as stated with d=radical(cubic tensor) can fail;
+          (3) with d'=radical(full third-power tensor s_{{q,r,a}}) it holds.
+
+n=4: 500 gates | doubling delta>=2nu: 15/500 | genLB as stated delta>=2(n-d-r): 500/500 | genLB corrected delta>=2(n-d'-r): 500/500
+n=5: 500 gates | doubling delta>=2nu: 99/500 | genLB as stated delta>=2(n-d-r): 496/500 | genLB corrected delta>=2(n-d'-r): 500/500
+
+--- LOW END: when quadratic mass makes NULLITY the better floor ---
+CS-layer (m disjoint CS on n=2m): moment bound collapses, nullity wins
+  m=1 n=2: nu= 2  moment-bound 2(n-d'-r)= 0 (r=2,d'=0)  max(nu,mb)= 2  delta=  3  <- nullity beats the moment bound
+  m=2 n=4: nu= 4  moment-bound 2(n-d'-r)= 0 (r=4,d'=0)  max(nu,mb)= 4  delta=  6  <- nullity beats the moment bound
+  m=3 n=6: nu= 6  moment-bound 2(n-d'-r)= 0 (r=6,d'=0)  max(nu,mb)= 6  delta=  9  <- nullity beats the moment bound
+
+n=4: 400 mixed gates | combined max(nu,mb) valid (<=delta): 400/400 | combined strictly beats nu: 26/400
+       crossover by quadratic rank r  (mb=2(n-d'-r)):
+         r=0: mb<nu   0 | mb=nu   0 | mb>nu   2   (of 2)
+         r=1: mb<nu   8 | mb=nu   0 | mb>nu  24   (of 32)
+         r=2: mb<nu  31 | mb=nu  41 | mb>nu   0   (of 72)
+         r=3: mb<nu 164 | mb=nu   0 | mb>nu   0   (of 164)
+         r=4: mb<nu 130 | mb=nu   0 | mb>nu   0   (of 130)
+n=5: 400 mixed gates | combined max(nu,mb) valid (<=delta): 400/400 | combined strictly beats nu: 24/400
+       crossover by quadratic rank r  (mb=2(n-d'-r)):
+         r=1: mb<nu   2 | mb=nu   0 | mb>nu   5   (of 7)
+         r=2: mb<nu   1 | mb=nu   4 | mb>nu  19   (of 24)
+         r=3: mb<nu  93 | mb=nu   0 | mb>nu   0   (of 93)
+         r=4: mb<nu 149 | mb=nu   0 | mb>nu   0   (of 149)
+         r=5: mb<nu 127 | mb=nu   0 | mb>nu   0   (of 127)
+
+Reading: the moment bound 2(n-d'-r) pays -2r for quadratic mass and gets nothing back,
+so it drops below nu as r grows (crossover); nu never doubles here. Report the combined
+max(nu, 2(n-d'-r), rigidity) -- always valid, and it beats plain nu on cubic-dominated gates.
+
+--- PEELING BOUND: delta(U) >= delta(f3) - delta(f2) - delta(f1) (Q2) ---
+Complements the moment bound: peel pays the quadratic/linear T-COST, not the rank, so it
+wins in the sparse-but-high-rank regime where 2(n-d'-r) falls below nullity.
+n=4: 399 sparse-quadratic mixed gates
+   peel valid (<= delta):            399/399
+   max(nu,moment) valid:             399/399
+   max(nu,moment,PEEL) valid:        399/399
+   PEEL strictly lifts the floor:    109/399   (peel is the unique best in 109)
+   lifts binned by quadratic rank r: r=0:48, r=1:19, r=2:40, r=3:2
+n=5: 450 sparse-quadratic mixed gates
+   peel valid (<= delta):            450/450
+   max(nu,moment) valid:             450/450
+   max(nu,moment,PEEL) valid:        450/450
+   PEEL strictly lifts the floor:    202/450   (peel is the unique best in 202)
+   lifts binned by quadratic rank r: r=0:23, r=1:33, r=2:68, r=3:60, r=4:17, r=5:1
+
+--- PEEL IS TWO-SIDED: delta(U) in [delta(f3)-eps, delta(f3)+eps], eps=delta(f2)+delta(f1) ---
+So delta(U) is an eps-approximation of the cubic cost; sparse lower orders => tight pin.
+n=4: 500 gates | two-sided interval holds (|g|<=eps): 500/500
+   mean eps (bound width) = 3.64 | mean |delta(U)-delta(f3)| = 0.72   (actual gap is 20% of the bound)
+   delta(U) == delta(f3) exactly: 265/500 | pinned within 2 of cubic (eps<=2): 159/500
+n=5: 500 gates | two-sided interval holds (|g|<=eps): 500/500
+   mean eps (bound width) = 4.74 | mean |delta(U)-delta(f3)| = 1.46   (actual gap is 31% of the bound)
+   delta(U) == delta(f3) exactly: 79/500 | pinned within 2 of cubic (eps<=2): 110/500
+
+--- LEVEL-k PEEL: delta_k(U) >= delta(top-degree part) - delta(lower parts) ---
+level k=4, n=5: 276 gates | peel delta_k>=delta(top)-delta(low) valid: 276/276 | top alone would suffice: 118/276

@@ -1,0 +1,20 @@
+lem:paircharge, checked over EVERY representation of many pure-quadratic gates.
+
+For a pure quadratic gate, any {CNOT,T} representation, and any edge {a,b} of the order-2 moment
+graph, split the parity support S into
+
+    A = {v in S : a in v, b not in v},  B = {v : b in v, a not in v},  C = {v : a,b in v}.
+
+Purity gives M_{a} = M_{b} = 0 and M_{ab} = 1, so over F_2
+    |A| + |C| = 0,   |B| + |C| = 0,   |C| = 1,
+hence |A|, |B| and |C| are ALL ODD.  In particular at least three parities meet every edge and at
+least one contains both endpoints, so delta >= 3 whenever the graph is nonempty -- which pins
+delta(CS) = 3 with no decoding.
+
+This does not check a single representative: it enumerates the WHOLE coset (every element of
+Res + RM(n-4,n)^*) so the parity conditions are tested against every legal representation, not
+just the canonical one.
+==============================================================================
+   20632 (representation, edge) pairs checked over full cosets, n in [4, 5]
+   violations of 'all three counts odd': 0   ok
+   minimum parities meeting an edge: 3   (lemma predicts >= 3)

@@ -1,0 +1,14 @@
+======================================================================
+NEGATIVE CONTROL (h=3 candidate, no forced coupling):
+  candidate: Gauss sum not a valid diagonal phase (d=1 single direction)
+
+REALIZABLE width-1 chains (forced even coupling at every swap):
+  n=3 d=2:   772 valid, 0 viol, max delta(kappa)=0;  min slack=2 at (N_ker=2,delta=0)
+  n=3 d=3:   482 valid, 0 viol, max delta(kappa)=2;  min slack=2 at (N_ker=2,delta=0)
+  n=3 d=4:   193 valid, 0 viol, max delta(kappa)=2;  min slack=2 at (N_ker=2,delta=0)
+  n=4 d=2:   404 valid, 0 viol, max delta(kappa)=0;  min slack=2 at (N_ker=2,delta=0)
+  n=4 d=3:   225 valid, 0 viol, max delta(kappa)=0;  min slack=2 at (N_ker=2,delta=0)
+  n=4 d=4:    77 valid, 0 viol, max delta(kappa)=2;  min slack=2 at (N_ker=2,delta=0)
+======================================================================
+TOTAL: 2153 valid realizable width-1 configs, 0 violations.
+PASS: N_ker >= delta(kappa) on every realizable width-1 config.

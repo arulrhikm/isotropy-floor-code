@@ -1,0 +1,12 @@
+VALIDATION (known exact values):
+  CCZ (n=3): 7 expect 7
+  CS  (n=3): 3 expect 3
+  T   (n=3): 1 expect 1
+  CCZ x I (n=4): 7 expect 7
+  CS x I^2 (n=4): 3 expect 3
+  CCZ x I^2 (n=5): 7 expect 7
+
+HYPOTHESIS GENERATION:
+  CCZ(123) + T(4)   n=5: 7 expect 8 if additive
+  CCZ(123)+ CS(45)  n=5: 9 expect 10 if additive
+  CS(12) + CS(34)   n=4: 6 expect 6 if additive

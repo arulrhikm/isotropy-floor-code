@@ -1,0 +1,66 @@
+Two-sided O(n^3) brackets on the application families of the paper.
+
+The canonical-residue ceiling (prop:ceiling, which applies to every diagonal level-three gate)
+supplies an upper bound at the same cost as the floor, so each application family gets a bracket
+
+        2(n - d*) - r   <=   delta   <=   W(s),
+
+both evaluated in O(n^3) from the phase polynomial, with no decoding.  Where exact decoding is
+feasible we print delta too, so the bracket can be scored rather than merely quoted.
+
+Cross-check built in: the GF(2^k) row must reproduce W_k = (7, 17, 36, 58, 90, 123) as computed
+independently by `gf2m_floor.py`, which derives the same numbers from a bespoke "merged canonical
+residue" for that one family.  Agreement is evidence that the general ceiling
+specialises to that construction.
+==============================================================================
+
+== GF(2^k) multiplication oracle (prop:fieldoracle, rem:gf2mbracket) ==
+   cross-check: ceiling must equal gf2m_floor.py's bespoke W_k
+   k=1  n= 3  floor=  7 (6k+1=  7)  ceiling=  7  width   0  delta=  7  == gf2m W_k
+   k=2  n= 6  floor= 13 (6k+1= 13)  ceiling= 17  width   4  delta= 17  == gf2m W_k
+   k=3  n= 9  floor= 19 (6k+1= 19)  ceiling= 36  width  17  delta=  -  == gf2m W_k
+   k=4  n=12  floor= 25 (6k+1= 25)  ceiling= 58  width  33  delta=  -  == gf2m W_k
+   k=5  n=15  floor= 31 (6k+1= 31)  ceiling= 90  width  59  delta=  -  == gf2m W_k
+   k=6  n=18  floor= 37 (6k+1= 37)  ceiling=123  width  86  delta=  -  == gf2m W_k
+
+== parallel Toffoli layer: m disjoint CCZ on n=3m (thm:parccz, delta = 6m+1) ==
+   m=1                                    n= 3  [  7,   7]  width   0   delta=  7  [known 7]
+   m=2                                    n= 6  [ 13,  14]  width   1   delta= 13  [known 13]
+   m=3                                    n= 9  [ 19,  21]  width   2   delta=  -  [known 19]
+   m=4                                    n=12  [ 25,  28]  width   3   delta=  -  [known 25]
+   m=5                                    n=15  [ 31,  35]  width   4   delta=  -  [known 31]
+   reading: the floor is exact (6m+1); the ceiling 7m is loose by m-1, since the
+            canonical residue pays 7 per block and misses the shared-parity saving.
+
+== fan-out layer: m CCZ through one shared control, n=2m+1 (thm:fanout, 4m+3) ==
+   m=1                                    n= 3  [  7,   7]  width   0   delta=  7  [known 7]
+   m=2                                    n= 5  [ 11,  12]  width   1   delta= 11  [known 11]
+   m=3                                    n= 7  [ 15,  19]  width   4   delta=  -  [known 15]
+   m=4                                    n= 9  [ 19,  24]  width   5   delta=  -  [known 19]
+
+== QAOA / Ising cost layers, mixed degree (prop:univfloor) ==
+   these carry quadratic mass, so only the GENERALISED ceiling W(s) applies
+   3-local line n=5, 0 penalty edge(s)    n= 5  [ 11,  11]  width   0   delta= 11
+   3-local line n=5, 1 penalty edge(s)    n= 5  [  8,  10]  width   2   delta=  9
+   3-local line n=5, 2 penalty edge(s)    n= 5  [  6,  11]  width   5   delta=  8
+   3-local line n=6, 0 penalty edge(s)    n= 6  [ 13,  14]  width   1   delta= 13
+   3-local line n=6, 1 penalty edge(s)    n= 6  [ 10,  13]  width   3   delta= 11
+   3-local line n=6, 2 penalty edge(s)    n= 6  [  8,  12]  width   4   delta= 10
+   line n=6 + 2 edges + 3 fields          n= 6  [  7,  15]  width   8   delta= 11
+
+== structured cubic families (prop:families) ==
+   line   x_i x_{i+1} x_{i+2}  (n=5)      n= 5  [ 11,  11]  width   0   delta= 11
+   cycle  (wrap-around)  (n=5)            n= 5  [ 11,  15]  width   4   delta= 11
+   star   x_0 x_i x_{i+1}  (n=5)          n= 5  [ 11,  11]  width   0   delta= 11
+   e_3    complete cubic  (n=5)           n= 5  [ 11,  20]  width   9   delta= 11
+   line   x_i x_{i+1} x_{i+2}  (n=6)      n= 6  [ 13,  14]  width   1   delta= 13
+   cycle  (wrap-around)  (n=6)            n= 6  [ 13,  18]  width   5   delta= 17
+   star   x_0 x_i x_{i+1}  (n=6)          n= 6  [ 11,  12]  width   1   delta= 11
+   e_3    complete cubic  (n=6)           n= 6  [ 11,  20]  width   9   delta= 11
+
+==============================================================================
+   field: ok
+   toffoli: ok
+   fanout: ok
+   qaoa: ok
+   families: ok

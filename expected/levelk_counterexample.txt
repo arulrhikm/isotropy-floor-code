@@ -1,0 +1,17 @@
+Searching the large-radical regime for  nu > 2(n-d_k)  at k=4 ...
+ n= 9 D=4 -> best margin +0  (ok)
+ n=10 D=4 -> best margin +1  (VIOLATION)
+ n= 9 D=5 -> best margin +1  (VIOLATION)
+ n=10 D=5 -> best margin +1  (VIOLATION)
+
+========================================================================
+COUNTEREXAMPLE (all five verification checks passed):
+  n=10 k=4 | d_k=6 (2d_k>n: True) | D=n-d_k=4 | dim A=1 | nu=9 | floor 2(n-d_k)=8 | nu-floor=+1
+
+  f = sum of these degree-4 monomials (bitmask over 10 variables):
+    [29, 30, 45, 46, 57, 58, 60, 85, 86, 89, 90, 101, 102, 105, 106, 113, 114, 116, 120, 141, 142, 156, 169, 170, 184, 197, 198, 201, 202, 212, 216, 225, 226, 240, 269, 270, 281, 282, 300, 312, 325, 326, 329, 330, 337, 338, 356, 360, 368, 393, 394, 396, 408, 424, 449, 450, 452, 456, 464, 480, 525, 526, 533, 534, 537, 538, 549, 550, 556, 561, 562, 564, 568, 581, 582, 585, 586, 609, 610, 612, 616, 645, 646, 649, 650, 652, 660, 664, 673, 674, 680, 688, 708, 712, 736, 773, 774, 785, 786, 804, 816, 833, 834, 864, 897, 898, 900, 912, 928, 960]
+
+  Consequence: nu = 9 exceeds the level-k isotropy floor 2(n-d_k) = 8,
+  so 2(n-d_k) does NOT dominate stabilizer nullity at level k.
+  The level-k floor is max(nu, 2(n-d_k)), as prop:nullityk
+  states it (rem:levelkdom).

@@ -1,0 +1,21 @@
+gate                            n  d  r  2(n-d-r) delta  status
+----------------------------------------------------------------------
+CCZ(012)                        3  0  0         6     7  PASS  [pure-cubic d=0: 2n+1=7, delta>=7? True]
+CCZ(012) [n4]                   4  1  0         6     7  PASS  [pure-cubic: 2(n-d)=6]
+CCZ(012) [n5]                   5  2  0         6     7  PASS  [pure-cubic: 2(n-d)=6]
+CCZ(012) [n6]                   6  3  0         6     7  PASS  [pure-cubic: 2(n-d)=6]
+CCZ(012)+CS(01)                 3  0  2         2     4  PASS
+CCZ(012)+CS(01) [n4]            4  1  2         2     4  PASS
+CCZ(012)+CS(01)+CS(12)          3  0  2         2     3  PASS
+CCZ(012)+T(0)                   4  1  1         4     6  PASS
+CCZ(012)+T(3) [n4]              4  1  1         4     7  PASS
+CCZ(012)+CS(34) [n5]            5  2  2         2     9  PASS
+CCZ(012)+CCZ(345) [n6]          6  0  0        12    13  PASS  [pure-cubic d=0: 2n+1=13, delta>=13? True]
+CCZ(012)+CCZ(345)+CS(03)        6  0  2         8    13  PASS
+CS(01)                          3  3  2        -4     3  PASS
+CS(01)+CS(12)                   3  3  2        -4     4  PASS
+E3 complete cubic [n5]          5  0  0        10    11  PASS  [pure-cubic d=0: 2n+1=11, delta>=11? True]
+E3 complete cubic [n6]          6  1  0        10    11  PASS  [pure-cubic: 2(n-d)=10]
+CCZ(012)+CCZ(234) overlap       5  0  0        10    11  PASS  [pure-cubic d=0: 2n+1=11, delta>=11? True]
+----------------------------------------------------------------------
+ALL PASS

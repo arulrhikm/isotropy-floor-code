@@ -1,0 +1,44 @@
+The cubic orbit atlas: exact delta on EVERY GL(n,2)-orbit of cubic forms.
+
+The paper's exactness claims are stated on named families (parallel Toffoli layers, fan-out
+layers, GF(2^k) oracles).  This replaces "tight on named families" with a census: for every
+orbit of cubic forms, compare the floor 2(n-d)+1 against the exact T-count.
+
+Why orbits are the right unit.  delta is invariant under CNOT relabelling x -> Lx, and the
+PURE-CUBIC LOCUS IS CLOSED under that action (quadratic_locus.py): cubic mass sits at
+coefficient 4, and 4z mod 8 depends only on z mod 2, so cubic mass is blind to the Z_8 carries
+that a change of variables produces.  The induced action on the form is the standard one on
+RM(3,n)/RM(2,n) -- f |-> the degree-3 part of f o L -- because the lower-degree debris of the
+substitution enters the phase with coefficient 4, i.e. as CZ and Z gates, which are Clifford
+and contribute no moments.  So each GL(n,2)-orbit has a single well-defined delta.
+
+Orbits are computed here from scratch by BFS under transvection generators x_i <- x_i + x_j
+(these generate GL(n,2)), so n <= 6 needs no external data.  Exact delta comes from the
+XOR-SAT oracle (sat_tcount.py).
+==============================================================================
+   n=4: 2 orbits over 16 cubic forms  (<t>)   [sizes sum to 16]
+
+== n=4: 1 nonzero orbits ==
+    orbit size  |f|  d  nu floor 2nu+1  delta  gap  representative
+            15    1  1   3           7      7    0  012
+   FLOOR IS EXACT on 1/1 orbits  =  15/15 forms (100.0% by measure)
+   gap distribution (delta - floor), by orbit: {0: 1}
+   n=5: 3 orbits over 1024 cubic forms  (<t>)   [sizes sum to 1024]
+
+== n=5: 2 nonzero orbits ==
+    orbit size  |f|  d  nu floor 2nu+1  delta  gap  representative
+           868    2  0   5          11     11    0  014+023
+           155    1  2   3           7      7    0  012
+   FLOOR IS EXACT on 2/2 orbits  =  1023/1023 forms (100.0% by measure)
+   gap distribution (delta - floor), by orbit: {0: 2}
+   n=6: 6 orbits over 1048576 cubic forms  (<t>)   [sizes sum to 1048576]
+
+== n=6: 5 nonzero orbits ==
+    orbit size  |f|  d  nu floor 2nu+1  delta  gap  representative
+        468720    3  0   6          13     15    2  015+024+123
+        357120    2  0   6          13     13    0  045+123
+        166656    5  0   6          13     17    4  024+025+035+125+134
+         54684    2  1   5          11     11    0  014+023
+          1395    1  3   3           7      7    0  012
+   FLOOR IS EXACT on 3/5 orbits  =  413199/1048575 forms (39.4% by measure)
+   gap distribution (delta - floor), by orbit: {0: 3, 2: 1, 4: 1}

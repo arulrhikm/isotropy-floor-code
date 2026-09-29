@@ -1,0 +1,77 @@
+Test of thm:genLB, the general isotropy floor:  delta(U) >= 2 (n - d*) - r.
+
+Here r is the rank of the quadratic moment matrix Q and d* is the dimension of the radical of the
+full third-power moment tensor (coincident indices give the order-<=2 moments).
+
+The proof works on W = span{c_a}, of dimension rho >= n - d*. Over F_2 the map lambda(v) = v.v
+is linear, so W_0 = W cap ker(lambda) has codimension eps in {0,1}, and the form restricted to
+W_0 is alternating. A symmetric form over F_2 is alternating or congruent to I_r (+) 0, so
+
+    eps=0 (Q alternating, r even) : dim W_0 = rho    , r_0 = r    , iso = rho - r/2
+    eps=1, r even                 : dim W_0 = rho - 1, r_0 = r - 2, iso = rho - r/2
+    eps=1, r odd                  : dim W_0 = rho - 1, r_0 = r - 1, iso = rho - (r+1)/2
+
+and iso <= t/2 (lem:iso-dim) gives t >= 2 rho - 2 ceil(r/2). For odd r the proof then shows
+that equality is impossible, which gives t >= 2 rho - r in every case.
+
+The script checks, against the exact Amy--Mosca decoder:
+  * the theorem's bound 2(n - d*) - r (no violations allowed);
+  * the case table above, algebraically, on a subset of the gates;
+  * how often the bound reaches the stabilizer nullity nu (cor:floordominates says always);
+  * the comparison with the radical-only bound 2(n - d* - r).
+
+
+==============================================================================
+named cases:
+   gate                                rho   r  eps  old  floor   nu  delta
+   CCZ (pure cubic, n=3)                 3   0    0    6      6    3      7
+   T^(x)4 (n=4 even)                     4   4    1    0      4    4      4
+   T^(x)6 (n=6 even)                     6   6    1    0      6    6      6
+   T^(x)5 (n=5 odd)                      5   5    1    0      5    5      5
+   2 disjoint CS (n=4)                   4   4    0    0      4    4      6
+   3 disjoint CS (n=6)                   6   6    0    0      6    6      9
+   complete cubic + CS mass (n=5)        5   4    0    2      6    5      9
+
+==============================================================================
+n=4: 2992 random mixed level-3 gates   [algebra cross-checked on 200]
+   violations of 2(n-d*)-r               : 0      (must be 0)
+   violations of 2(n-d*-r)               : 0
+   2(n-d*)-r exceeds 2(n-d*-r)           : 2977/2992  (99%)
+   floor >= nullity nu                   : 2992/2992   (radical-only bound: 555/2992)
+   by quadratic rank r:
+      r=0:    15 gates | floor>old     0 | floor>=nu    15 | old>=nu    15
+      r=1:   154 gates | floor>old   154 | floor>=nu   154 | old>=nu   127
+      r=2:   625 gates | floor>old   625 | floor>=nu   625 | old>=nu   413
+      r=3:  1174 gates | floor>old  1174 | floor>=nu  1174 | old>=nu     0
+      r=4:  1024 gates | floor>old  1024 | floor>=nu  1024 | old>=nu     0
+
+n=5: 3000 random mixed level-3 gates   [algebra cross-checked on 200]
+   violations of 2(n-d*)-r               : 0      (must be 0)
+   violations of 2(n-d*-r)               : 0
+   2(n-d*)-r exceeds 2(n-d*-r)           : 2994/3000  (100%)
+   floor >= nullity nu                   : 3000/3000   (radical-only bound: 287/3000)
+   by quadratic rank r:
+      r=0:     6 gates | floor>old     0 | floor>=nu     6 | old>=nu     6
+      r=1:    60 gates | floor>old    60 | floor>=nu    60 | old>=nu    51
+      r=2:   249 gates | floor>old   249 | floor>=nu   249 | old>=nu   230
+      r=3:   634 gates | floor>old   634 | floor>=nu   634 | old>=nu     0
+      r=4:  1126 gates | floor>old  1126 | floor>=nu  1126 | old>=nu     0
+      r=5:   925 gates | floor>old   925 | floor>=nu   925 | old>=nu     0
+
+n=6: 3000 random mixed level-3 gates   [algebra cross-checked on 200]
+   violations of 2(n-d*)-r               : 0      (must be 0)
+   violations of 2(n-d*-r)               : 0
+   2(n-d*)-r exceeds 2(n-d*-r)           : 2999/3000  (100%)
+   floor >= nullity nu                   : 3000/3000   (radical-only bound: 357/3000)
+   by quadratic rank r:
+      r=0:     1 gates | floor>old     0 | floor>=nu     1 | old>=nu     1
+      r=1:    29 gates | floor>old    29 | floor>=nu    29 | old>=nu    28
+      r=2:   102 gates | floor>old   102 | floor>=nu   102 | old>=nu    97
+      r=3:   265 gates | floor>old   265 | floor>=nu   265 | old>=nu   231
+      r=4:   601 gates | floor>old   601 | floor>=nu   601 | old>=nu     0
+      r=5:  1130 gates | floor>old  1130 | floor>=nu  1130 | old>=nu     0
+      r=6:   872 gates | floor>old   872 | floor>=nu   872 | old>=nu     0
+
+==============================================================================
+RESULT: no violations. 2(n-d*)-r holds on every gate tested,
+        and the isotropy case table (eps / r_0) was verified algebraically.

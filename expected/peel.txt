@@ -1,0 +1,72 @@
+SELF-TESTS (exact decoder + the known saturating cases):
+  delta(CCZ)=7, delta(CS)=3, delta(T)=1  OK
+  CS layer m=1 (n=2): nu=2 sharp=2 delta=3  advantage=0 OK (saturated)
+  CS layer m=2 (n=4): nu=4 sharp=4 delta=6  advantage=0 OK (saturated)
+  CS layer m=3 (n=6): nu=6 sharp=6 delta=9  advantage=0 OK (saturated)
+  T^{tensor 1}: nu=1 sharp=1 delta=1 (true cost 1)
+  T^{tensor 2}: nu=2 sharp=2 delta=2 (true cost 2)
+  T^{tensor 3}: nu=3 sharp=3 delta=3 (true cost 3)
+  T^{tensor 4}: nu=4 sharp=4 delta=4 (true cost 4)
+
+  [n=4: 300 gates]
+  [n=5: 300 gates]
+  [n=6: 300 gates]
+
+==============================================================================
+(A) DOES THE PEELING TERM ADD ANYTHING TO 2(n-d*)-r?
+==============================================================================
+  gates measured                                 : 900
+  peel (O(n^3), prop:peel deployable form):
+    STRICTLY raises max(nu, sharp)               : 54  (6.0%)
+    ties the max                                 : 86  (9.6%)
+  peel (exact lower parts -- NOT O(n^3), research envelope only):
+    STRICTLY raises max(nu, sharp)               : 104  (11.6%)
+    (on a pure-cubic gate this term IS delta, so it cannot judge tightness there)
+
+==============================================================================
+(B) WHO WINS WHERE  -- which term is the unique maximum
+==============================================================================
+  regime      gates  nu only    sharp     peel      tie
+  pure cubic     98        0       55        0       43
+  r < nu/2       91        0       39       32       20
+  r >= nu/2     456        0      417       22       17
+  r = nu (sat)    255        0        0        0      255
+  (nu can never strictly win over sharp -- cor:floordominates -- so 'nu only' must be 0.)
+
+  advantage sharp - nu  = nu - r, by bucket:
+    pure cubic   mean <t> 4   max 7
+    r < nu/2     mean <t> 2   max 5
+    r >= nu/2    mean <t> 1   max 3
+    r = nu (sat) mean <t> 0   max 0
+
+==============================================================================
+(C) THE RESIDUAL  delta - combined  -- what is left for a new invariant to explain
+==============================================================================
+  combined floor exactly tight                   : 198  (22.0%)
+  residual: mean 2.14  max 7
+
+  residual by quadratic rank r (looking for what varies at FIXED r):
+     r   gates mean res    min    max
+     0      98     0.24      0      4
+     1      44     0.50      0      2
+     2     169     0.97      0      3
+     3     129     1.42      0      5
+     4     292     2.66      0      5
+     5     111     4.03      0      6
+     6      57     5.37      0      7
+
+  correlation of residual with candidate invariants.
+  col 1 controls for r only; col 2 ALSO controls for gate size (n, n_tri, n_pair),
+  which is the confound -- a bigger gate has a bigger residual by itself.
+  feature               fixed r  (gates)     fixed r+size  (gates)
+    pair_inside           +0.278      900          -0.223      453
+    pair_straddle         -0.065      900          +0.171      453
+    pair_outside          -0.182      900          -0.174      453
+    supp_overlap          +0.374      900          -0.061      453
+    n_tri                 +0.500      900          +0.000      453
+    n_pair                +0.200      900          +0.000      453
+    n_lin                 -0.040      900          +0.055      453
+    cub_supp              +0.497      900          +0.068      453
+    lin_in_cub            +0.159      900          +0.094      453
+  Only a feature that survives column 2 is a candidate for replacing r;
+  anything that collapses there was measuring gate size, not incidence.

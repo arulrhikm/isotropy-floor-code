@@ -1,0 +1,53 @@
+== prop:termcount:  W(s) == |H| + |J| + |h|  for Ising cost layers ==
+   n   |H|   |J|  |h|   W(s)  terms  match
+   7     8     6    2     16     16  YES
+   8    16     6    4     26     26  YES
+   7     9     6    5     20     20  YES
+   9    29    11    1     41     41  YES
+   9    27     8    5     40     40  YES
+   9    27    11    4     42     42  YES
+   6     6     6    3     15     15  YES
+   6     2     3    2      7      7  YES
+   6     9     6    3     18     18  YES
+   6     4     4    0      8      8  YES
+   9    30     7    3     40     40  YES
+   9    34    10    4     48     48  YES
+  -> all match
+
+== cor:sparsebracket:  W(s) <= 4|F| + |Q| + n  (general level-three) ==
+   n   |F|   |Q|   W(s)  bound  holds
+   8    19    11     34     95  OK
+   7    13    11     19     70  OK
+   7    10     9     18     56  OK
+   7    13     9     27     68  OK
+   7     8    11     22     50  OK
+   7     9    11     16     54  OK
+   8    21    11     41    103  OK
+   8    17    15     32     91  OK
+   8    16    18     29     90  OK
+   6     3     6     14     24  OK
+   8    22    12     41    108  OK
+   7    15    11     26     78  OK
+  -> bound holds throughout
+
+== bounded degree: worst ceiling/floor over random max-degree-D hypergraphs ==
+   (pure cubic; floor = 2(n-d) [+1 at d=0]; predicted bound 2D/3 + 1/2)
+   D    n   |F|   d  floor   ceil   ratio   bound
+   1   12     3   3     18     21   1.167   1.167  OK
+   1   18     5   3     30     35   1.167   1.167  OK
+   1   24     7   3     42     49   1.167   1.167  OK
+   2   12     7   1     22     29   1.318   1.833  OK
+   2   18    11   1     34     45   1.324   1.833  OK
+   2   24    15   1     46     61   1.326   1.833  OK
+   3   12    11   1     22     53   2.409   2.500  OK
+   3   18    18   0     37     86   2.324   2.500  OK
+   3   24    21   3     42     97   2.310   2.500  OK
+   4   12    16   0     25     54   2.160   3.167  OK
+   4   18    22   0     37     86   2.324   3.167  OK
+   4   24    31   0     49    121   2.469   3.167  OK
+   6   12    23   0     25     65   2.600   4.500  OK
+   6   18    34   0     37    114   3.081   4.500  OK
+   6   24    46   0     49    158   3.224   4.500  OK
+  -> bound holds; ratio flat in n for fixed D
+
+ALL CHECKS PASS

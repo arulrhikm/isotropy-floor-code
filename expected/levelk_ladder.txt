@@ -1,0 +1,43 @@
+self-test level 3 (compare moment-delta to the exact decoder):
+  CCZ (n=3)      moment-delta=7  decoder=7  OK
+  line f5 (n=5)  moment-delta=11  decoder=11  OK
+  e3 (n=5)       moment-delta=11  decoder=11  OK
+
+LEVEL-k LADDER: does the order-k moment bound still beat stabilizer nullity, and stay tight?
+
+=== level 2 (mod 4) pure gates | bound = (n-d_k), NO doubling vs nullity nu ===
+  n=3: 103 gates | beat nu:103/103 tie:0/103 below:0/103 | nu==n-d_k:0/103 | gap delta-bound in [1,1] mean 1.0 tight(gap=0):0/103 | RM-identity 103/103 | <t>  [DEGENERATE: nu=0, these mod-4 pure quadratics are Clifford]
+  n=4: 118 gates | beat nu:118/118 tie:0/118 below:0/118 | nu==n-d_k:0/118 | gap delta-bound in [1,1] mean 1.0 tight(gap=0):0/118 | RM-identity 118/118 | <t>  [DEGENERATE: nu=0, these mod-4 pure quadratics are Clifford]
+  n=5: 120 gates | beat nu:120/120 tie:0/120 below:0/120 | nu==n-d_k:0/120 | gap delta-bound in [1,1] mean 1.0 tight(gap=0):0/120 | RM-identity 120/120 | <t>  [DEGENERATE: nu=0, these mod-4 pure quadratics are Clifford]
+  n=6: 120 gates | beat nu:120/120 tie:0/120 below:0/120 | nu==n-d_k:0/120 | gap: n/a (coset too big) | RM: n/a | <t>  [DEGENERATE: nu=0, these mod-4 pure quadratics are Clifford]
+
+=== level 3 (mod 8) pure gates | bound = 2(n-d_k) vs nullity nu ===
+  n=4: 110 gates | beat nu:110/110 tie:0/110 below:0/110 | nu==n-d_k:110/110 | gap delta-bound in [1,1] mean 1.0 tight(gap=0):0/110 | RM-identity 110/110 | <t>
+  n=5: 120 gates | beat nu:120/120 tie:0/120 below:0/120 | nu==n-d_k:120/120 | gap delta-bound in [1,1] mean 1.0 tight(gap=0):0/120 | RM-identity 120/120 | <t>
+  n=6: 120 gates | beat nu:120/120 tie:0/120 below:0/120 | nu==n-d_k:120/120 | gap: n/a (coset too big) | RM: n/a | <t>
+
+=== level 4 (mod 16) pure gates | bound = 2(n-d_k) vs nullity nu ===
+  n=4:  57 gates | beat nu:57/57 tie:0/57 below:0/57 | nu==n-d_k:57/57 | gap delta-bound in [7,7] mean 7.0 tight(gap=0):0/57 | RM-identity 57/57 | <t>
+  n=5: 116 gates | beat nu:116/116 tie:0/116 below:0/116 | nu==n-d_k:116/116 | gap delta-bound in [7,7] mean 7.0 tight(gap=0):0/116 | RM-identity 116/116 | <t>
+  n=6: 120 gates | beat nu:120/120 tie:0/120 below:0/120 | nu==n-d_k:120/120 | gap delta-bound in [7,15] mean 12.5 tight(gap=0):0/120 | RM-identity 120/120 | <t>
+
+=== level 5 (mod 32) pure gates | bound = 2(n-d_k) vs nullity nu ===
+  n=5:  32 gates | beat nu:32/32 tie:0/32 below:0/32 | nu==n-d_k:32/32 | gap delta-bound in [21,21] mean 21.0 tight(gap=0):0/32 | RM-identity 32/32 | <t>
+  n=6:  79 gates | beat nu:79/79 tie:0/79 below:0/79 | nu==n-d_k:79/79 | gap delta-bound in [21,21] mean 21.0 tight(gap=0):0/79 | RM-identity 79/79 | <t>
+
+=== level 6 (mod 64) pure gates | bound = 2(n-d_k) vs nullity nu ===
+  n=6:  19 gates | beat nu:19/19 tie:0/19 below:0/19 | nu==n-d_k:19/19 | gap delta-bound in [51,51] mean 51.0 tight(gap=0):0/19 | RM-identity 19/19 | <t>
+  n=7:  40 gates | beat nu:40/40 tie:0/40 below:0/40 | nu==n-d_k:40/40 | gap delta-bound in [51,51] mean 51.0 tight(gap=0):0/40 | RM-identity 40/40 | <t>
+
+Reading:
+ - The RM(n-1-k,n)* code identity holds (moment-delta = true delta_k), and the slack vs
+   delta_k grows with level: 1 (k=3), 7-15 (k=4), 21 (k=5), 51 (k=6). Radical is O(n^k),
+   cheap, no decode -> the floor 2(n-d_k) is the higher-level analogue you actually compute.
+ - CAVEAT on the nullity columns: nu here is for the min-weight-RESIDUE lift (canonical_phi),
+   NOT the natural gate (-1)^f.  For the natural gate the identity nu=n-d_k is a k=3-only
+   phenomenon; at k>=4 nu can strictly exceed n-d_k (counterexample e_4 on n=5: nu=5>4).
+   See levelk_nullity_study.py -- there A<=R and nu>=n-d_k hold unconditionally and the
+   floor 2(n-d_k) still beats nu (100%), but it is NOT equal to 2*nu for k>=4.
+ - Level 2 (mod-4 pure quadratic) is the Clifford regime, nu=0 -> a vacuous comparison.
+   The real 'quadratic does not beat nullity' is the mixed-degree -2r penalty: see
+   experiment_mixed_nullity.py (CS-type quadratic mass embedded at level 3).

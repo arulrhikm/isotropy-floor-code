@@ -1,0 +1,56 @@
+SELF-TESTS
+  delta(CCZ) = 7  OK
+  single Toffoli mismatch-free  OK
+
+(D2) Gottesman-Mochon U_3 diagonal companion
+  triples: [(0, 1, 2), (0, 3, 4), (1, 3, 5), (2, 3, 6), (1, 4, 6), (0, 5, 6)]
+  n=7  radical d=0  floor=15  nullity nu=7  (floor/nu = 2.14x)
+  mismatch-free (semi-Clifford)? False  [expect False: U_3 is non-semi-Clifford]
+  exact decode: None  naive residue weight (upper bound): 28
+
+(D2) U_k family: joint (width, T-floor) region
+  k   n=2^k-1  #Toffolis  degree  HRT width floor  d  T-floor  nu
+  3        7          6       3                7   0              15   7
+  4       15         25       4               15   0              31   15
+  5       31         90       5               31   0              63   31
+
+(D2') U_k non-degeneracy, general k -- verifying the two proof steps
+  k     n  blocks  step1 unique  step2 unique  covers all   d  floor  2^(k+1)-1
+  2     3       1     True          True        True       0      7          7
+  3     7       6     True          True        True       0     15         15
+  4    15      25     True          True        True       0     31         31
+  5    31      90     True          True        True       0     63         63
+  6    63     301     True          True        True       0    127        127
+  7   127     966     True          True        True       -      -        255
+  8   255    3025     True          True        True       -      -        511
+  9   511    9330     True          True        True       -      -       1023
+  k=3 gives 6 triples on 7 qubits, matching prop:gm
+
+(D2'') rem:padding -- why prop:jointregion needs its hypothesis
+   NB: diag_companion_floor() returns thm:cubicLB's form (the +1 only at
+       d=0); the padding-invariant statement is prop:nullity's 2*nu+1,
+       which carries the +1 for every d.  We compare against 2*nu+1.
+    k |  n  d  2n+1  2nu+1 | padded: n'  d'  2n'+1  2nu'+1 | 2n'+1 valid?
+    3 |  7  0    15     15 |          8   1     17      15 | False
+    4 | 15  0    31     31 |         16   1     33      31 | False
+   => 2n+1 is not available once d>0; 2*nu+1 is unchanged. nu is the
+      invariant, which is exactly what rem:padding says.
+
+(bridge) structure constants vs the cubic moment tensor
+   c_{A,B}^{A|B} = 1  but  c_{A,A|B}^{B} = 0   (A={1}, B={2})
+   so c is symmetric in its first two slots only, NOT a symmetric tensor
+   support of c (as unordered triples) == block set: True  (6 triples on 7 qubits)
+
+(mismatch) semi-Clifford classifier vs decode
+  fan-out TOF(0,1,2)TOF(0,3,4): mismatch-free=True (expect True)
+    diagonal companion: floor=11, exact delta=11  (fan-out 4m+3=11)
+  chain TOF(0,1,2)TOF(2,3,4): mismatch-free=False (expect False)
+    diagonal companion: floor=11, exact delta=11  (linear overlap 6m+1-2s, m=2,s=1 -> 11)
+
+(D4) ripple-carry adder carry chain (shared-carry Toffolis)
+  m   n   d  floor  nu  exact delta
+  1   3   0              7   3   7   (mismatch-free=True)
+  2   5   0             11   5   11   (mismatch-free=False)
+  3   7   0             15   7   None   (mismatch-free=False)
+
+ALL PASS

@@ -1,0 +1,53 @@
+self-test: delta(CCZ)=7
+
+(a) e_3 = complete cubic, by parity of n
+     n  parity   d (cubic radical)  floor 2(n-d)(+1)    delta
+     3     odd                   0                 7        7  TIGHT
+     4    even                   1                 6        7  gap 1
+     5     odd                   0                11       11  TIGHT
+     6    even                   1                10        -
+     7     odd                   0                15        -
+     8    even                   1                14        -
+     9     odd                   0                19        -
+    10    even                   1                18        -
+    11     odd                   0                23        -
+    12    even                   1                22        -
+    13     odd                   0                27        -
+    => d=0 exactly for odd n (non-degenerate, floor 2n+1); d>=1 for even n.
+
+(b) disjoint non-degenerate cubic layers: floor 2N+1 (rem:disjointcompress)
+    layer                         N  d  2N+1   delta
+    CCZ (m=1)                     3  0     7       7  TIGHT
+    CCZ (+) CCZ (m=2)             6  0    13       -
+    line f5 (n=5)                 5  0    11       -
+    line f6 (n=6)                 6  0    13       -
+    => union non-degenerate (d=0), decodable cases meet the 2N+1 floor.
+
+(c) e_k symmetric family: non-degenerate  <=>  n == k (mod 2)  (generalizes e_3)
+     k   n  same parity?  d_k (order-k radical)  predict d_k
+     3   3          True                     0            0
+     3   4         False                     1            1
+     3   5          True                     0            0
+     3   6         False                     1            1
+     3   7          True                     0            0
+     3   8         False                     1            1
+     4   4          True                     0            0
+     4   5         False                     1            1
+     4   6          True                     0            0
+     4   7         False                     1            1
+     4   8          True                     0            0
+     4   9         False                     1            1
+     5   5          True                     0            0
+     5   6         False                     1            1
+     5   7          True                     0            0
+     5   8         False                     1            1
+     5   9          True                     0            0
+     5  10         False                     1            1
+    => confirmed: d_k = 0 iff n,k same parity; d_k = 1 (all-ones) otherwise.
+
+(d) structured 3-uniform hypergraph cubics (decode small n)
+    family                  n  |H|  d 2(n-d)(+1)   delta
+    cycle C_5               5    5  0         11      11  TIGHT
+    cycle C_6               6    6  0         13       -
+    star K_{1,*} n=5        5    6  0         11      11  TIGHT
+    tripartite K_222        6    8  3          6       -

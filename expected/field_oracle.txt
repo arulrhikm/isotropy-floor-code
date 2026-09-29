@@ -1,0 +1,13 @@
+(a) non-degeneracy of the GF(2^k) multiplication tensor
+  k=1  n=3  #monomials=1  d=0  floor 2n+1=7  schoolbook<=7*1=7
+  k=2  n=6  #monomials=5  d=0  floor 2n+1=13  schoolbook<=7*5=35
+  k=3  n=9  #monomials=12  d=0  floor 2n+1=19  schoolbook<=7*12=84
+  k=4  n=12  #monomials=22  d=0  floor 2n+1=25  schoolbook<=7*22=154
+  -> d=0 for k<=4; floor delta >= 6k+1
+
+(b) k=1: the oracle is CCZ
+  delta = 7  (expect 7 = 6*1+1, tight)
+
+(c) k=2: GF(4) multiplication oracle on n=6, exact decode
+  delta = 17   floor 6k+1 = 13   naive residue weight = 17
+  floor attained: False

@@ -1,0 +1,75 @@
+Why the cubic corner is tame and the quadratic corner is not: a GRADING asymmetry (rem:grading),
+and why the quadratic cost is not a function of the rank r alone (rem:quadopen).
+
+A level-three phase is  phi = 4 f_3 + 2 f_2 + f_1  (mod 8).  Under a CNOT relabelling x -> Lx
+(Clifford, so delta is unchanged) the variables become XORs of the old ones, and over Z the
+XOR differs from the sum by carries:  u + v = (u ^ v) + 2uv.  The two degrees respond
+differently to that:
+
+  * CUBIC mass sits at coefficient 4, and  4z mod 8  depends only on  z mod 2.  So a cubic
+    term is BLIND to carries: 4 y_a y_b y_c is the F_2 product.  The pure-cubic locus
+    (order-<=2 moments vanish) is therefore CLOSED under GL(n,2).
+  * QUADRATIC mass sits at coefficient 2, and  2z mod 8  depends on  z mod 4.  So
+    2u + 2v = 2(u ^ v) + 4uv:  a change of variables CONVERTS quadratic mass into cubic mass.
+    The pure-quadratic locus is NOT closed under GL(n,2).
+
+Consequence: the argument "put the alternating form in symplectic normal form by a CNOT
+relabelling, leaving r/2 disjoint CS gates, so delta(U_2) <= 3r/2" LEAVES the locus it is
+arguing about -- the normal form generally acquires a CCZ.  The claim delta(U_2) <= 3r/2 is
+false (rem:quadopen).
+
+  minimal counterexample:  q = x0 x1 + x0 x2  on n=4.
+  Alternating rank r = 2, so the claim gives delta <= 3.  The true cost is 4.
+  Confirmed three ways: XOR-SAT (sat_tcount), meet-in-the-middle (validate_amdist), and
+  thm:rigidradius (the residue has weight 4 <= 7, hence delta = 4 with no search at all).
+
+What survives is a bound in the right invariant.  The canonical residue of a pure quadratic
+with edge set E(q) is  { {a,b} : q_ab = 1 }  together with  { {a} : deg_q(a) odd }, so
+
+        delta(U_2)  <=  e(q) + odd(q),          e = |E(q)|,  odd = #{a : deg_q(a) odd},
+
+computable in O(n^2), and EXACT whenever e + odd <= 7 by the rigidity radius.  Rank is simply
+not the controlling parameter: a star K_{1,k} has rank 2 but costs about 2k.
+==============================================================================
+== GL(5,2)-closure of the two loci, 300 random relabellings each ==
+   pure CUBIC gates that acquired order-<=2 mass : 0/300   (locus IS closed, as predicted)
+   pure QUADRATIC gates that acquired cubic mass : 294/300   <- locus is NOT closed, as predicted
+   sanity: delta changed under relabelling in    : 0/300   (must be 0 -- delta is Clifford-invariant)
+
+== the claim delta <= 3r/2 on ALL pure quadratics, n=4 ==
+   63 pure-quadratic gates
+   delta > 3r/2  (3r/2 claim fails)      : 25/63
+   delta <= e+odd (lem:quadcost)         : 63/63
+   minimal counterexample: q = [(0, 1), (0, 2)]   r=2  3r/2=3  delta=4
+   q (edges)                     r  3r/2  e+odd  delta
+   [(0, 1)]                      2     3      3      3
+   [(0, 2)]                      2     3      3      3
+   [(0, 3)]                      2     3      3      3
+   [(1, 2)]                      2     3      3      3
+   [(1, 3)]                      2     3      3      3
+   [(2, 3)]                      2     3      3      3
+   [(0, 1), (0, 2)]              2     3      4      4  <- 3r/2 fails
+   [(0, 1), (0, 3)]              2     3      4      4  <- 3r/2 fails
+   [(0, 2), (0, 3)]              2     3      4      4  <- 3r/2 fails
+   [(0, 1), (1, 2)]              2     3      4      4  <- 3r/2 fails
+   [(0, 2), (1, 2)]              2     3      4      4  <- 3r/2 fails
+   [(0, 1), (1, 3)]              2     3      4      4  <- 3r/2 fails
+
+== the claim delta <= 3r/2 on ALL pure quadratics, n=5 ==
+   1023 pure-quadratic gates
+   delta > 3r/2  (3r/2 claim fails)      : 765/1023
+   delta <= e+odd (lem:quadcost)         : 1023/1023
+   minimal counterexample: q = [(0, 1), (0, 2)]   r=2  3r/2=3  delta=4
+   q (edges)                     r  3r/2  e+odd  delta
+   [(0, 1)]                      2     3      3      3
+   [(0, 2)]                      2     3      3      3
+   [(0, 3)]                      2     3      3      3
+   [(0, 4)]                      2     3      3      3
+   [(1, 2)]                      2     3      3      3
+   [(1, 3)]                      2     3      3      3
+   [(1, 4)]                      2     3      3      3
+   [(2, 3)]                      2     3      3      3
+   [(2, 4)]                      2     3      3      3
+   [(3, 4)]                      2     3      3      3
+   [(0, 1), (0, 2)]              2     3      4      4  <- 3r/2 fails
+   [(0, 1), (0, 3)]              2     3      4      4  <- 3r/2 fails

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the paper."
+title: "isotropy-floor-code"
+abstract: "Code and data for the paper 'Exact T-counts of Toffoli layers from an isotropy bound'."
+authors:
+  - family-names: Mazumder
+    given-names: Arul Rhik
+    affiliation: Imperial College London
+repository-code: "https://github.com/arulrhikm/isotropy-floor-code"
+license: MIT
+date-released: 2026-09-28
+preferred-citation:
+  type: article
+  title: "Exact T-counts of Toffoli layers from an isotropy bound"
+  authors:
+    - family-names: Mazumder
+      given-names: Arul Rhik
+      affiliation: Imperial College London
+  year: 2026

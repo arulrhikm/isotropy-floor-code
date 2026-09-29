@@ -1,0 +1,31 @@
+=== ripple-carry CHAIN: B_i = {c_{i-1}, u_i, c_i}, blocks share one qubit in a path ===
+carry chain m=1                    n=  3  weight=  7  floor=  7  meets=True  moments_ok=True
+carry chain m=2                    n=  5  weight= 11  floor= 11  meets=True  moments_ok=True
+carry chain m=3                    n=  7  weight= 15  floor= 15  meets=True  moments_ok=True
+carry chain m=4                    n=  9  weight= 19  floor= 19  meets=True  moments_ok=True
+carry chain m=5                    n= 11  weight= 23  floor= 23  meets=True  moments_ok=True
+carry chain m=6                    n= 13  weight= 27  floor= 27  meets=True  moments_ok=True
+carry chain m=7                    n= 15  weight= 31  floor= 31  meets=True  moments_ok=True
+carry chain m=8                    n= 17  weight= 35  floor= 35  meets=True  moments_ok=True
+carry chain m=9                    n= 19  weight= 39  floor= 39  meets=True  moments_ok=True
+
+=== FAN-OUT: m Toffolis through one shared control (thm:fanout, 4m+3) ===
+fan-out m=1                        n=  3  weight=  7  floor=  7  meets=True  moments_ok=True
+fan-out m=2                        n=  5  weight= 11  floor= 11  meets=True  moments_ok=True
+fan-out m=3                        n=  7  weight= 15  floor= 15  meets=True  moments_ok=True
+fan-out m=4                        n=  9  weight= 19  floor= 19  meets=True  moments_ok=True
+fan-out m=5                        n= 11  weight= 23  floor= 23  meets=True  moments_ok=True
+fan-out m=6                        n= 13  weight= 27  floor= 27  meets=True  moments_ok=True
+fan-out m=7                        n= 15  weight= 31  floor= 31  meets=True  moments_ok=True
+fan-out m=8                        n= 17  weight= 35  floor= 35  meets=True  moments_ok=True
+
+=== DISJOINT layer (Campbell-Howard count 6m+1) ===
+disjoint chain m=1                 n=  3  weight=  7  floor=  7  meets=True  moments_ok=True
+disjoint chain m=2                 n=  6  weight= 13  floor= 13  meets=True  moments_ok=True
+disjoint chain m=3                 n=  9  weight= 19  floor= 19  meets=True  moments_ok=True
+disjoint chain m=4                 n= 12  weight= 25  floor= 25  meets=True  moments_ok=True
+disjoint chain m=5                 n= 15  weight= 31  floor= 31  meets=True  moments_ok=True
+disjoint chain m=6                 n= 18  weight= 37  floor= 37  meets=True  moments_ok=True
+disjoint chain m=7                 n= 21  weight= 43  floor= 43  meets=True  moments_ok=True
+
+ALL CHECKS PASS

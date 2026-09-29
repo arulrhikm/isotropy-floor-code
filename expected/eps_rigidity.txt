@@ -1,0 +1,12 @@
+(1)+(2) sde bound and entry rigidity on random circuits
+  circuits tested: 180
+  sde(V) <= 2n(t+1) violations: 0  (expect 0)
+  rigidity |v - w^j| >= 2^-(sde+1) violations: 0  (expect 0)
+  worst distance/gap ratio: 1.172  (>= 1 required)
+
+(3) n=1 dichotomy: distance from T to the t=0 set (Cliffords)
+  1q Clifford group elements generated (with phases): 192
+  min over Cliffords of ||T - C||_op lower bound: 0.5412
+  theorem radius 2^-(2n(t+1)+2) at n=1,t=0: 0.0625
+
+ALL PASS

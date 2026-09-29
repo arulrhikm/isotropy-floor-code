@@ -1,0 +1,42 @@
+SELF-TESTS:
+  delta(CCZ)=7, delta(CS)=3, delta(T)=1  OK
+
+RESTRICTION LEMMA CHECK
+  (gate, subset) pairs tested            : 135
+  delta(U|_S) > delta(U)  failures       : 0   <-- must be 0
+
+COMBINED FLOOR  max{ isotropy , restriction }   vs the isotropy floor alone
+  family                 n     iso   restr    comb   delta   verdict
+  CCZ                    3       7       0       7       7   isotropy suffices
+  parallel CCZ m=2       6      13       7      13      13   isotropy suffices
+  fan-out m=2            5      11       7      11      11   isotropy suffices
+  line f_5               5      11       7      11      11   isotropy suffices
+  line f_6               6      13      11      13      13   isotropy suffices
+  complete e_3 n=5       5      11       7      11      11   isotropy suffices
+  complete e_3 n=6       6      11      11      11      11   isotropy suffices
+  two-shared m=2         4       7       7       7       7   isotropy suffices
+  two-shared m=3         5       7       7       7       7   isotropy suffices
+  two-shared m=4         6       7       7       7       7   isotropy suffices
+
+rem:twoshared at scale: the floor 2(n-d)+1 = 7 (prop:nullity) is already tight,
+so restriction cannot improve it.
+    m    n     iso  restrict    true   verdict
+    2    4       7         7       7   tie
+    3    5       7         7       7   tie
+    4    6       7         7       7   tie
+    5    7       7         7       7   tie
+    6    8       7         7       7   tie
+    7    9       7         7       7   tie
+    8   10       7         7       7   tie
+
+PURE-CUBIC CONTROL  (restriction should never win here)
+  gates tested                        : 400
+  restriction beats isotropy          : 0   (expected 0)
+  combined floor exceeds delta        : 0   <-- must be 0
+
+MIXED-DEGREE SWEEP  (where the isotropy floor pays -r and collapses)
+  gates tested                        : 399
+  restriction STRICTLY beats isotropy : 300  (75.2%)
+  mean gain when it wins              : 2.19
+  combined floor exceeds delta        : 0   <-- must be 0
+  first win: n=5  iso=5  restriction=7  delta=9  (r=5)

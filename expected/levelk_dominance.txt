@@ -1,0 +1,47 @@
+=== level k=4 : manufactured LARGE-RADICAL gates ===
+  family                       n d_k    D   nu  R/A  2D>=nu?  d_k>n/2
+  pullback g on D=4            6   2    4    4    0       OK       no
+  pullback g on D=4            6   2    4    4    0       OK       no
+  pullback g on D=5            6   2    4    6    2       OK       no
+  pullback g on D=5            6   2    4    4    0       OK       no
+  pullback g on D=4            7   3    4    5    1       OK       no
+  pullback g on D=4            7   3    4    5    1       OK       no
+  pullback g on D=5            7   3    4    6    2       OK       no
+  pullback g on D=5            7   3    4    7    3       OK       no
+  pullback g on D=6            7   1    6    7    1       OK       no
+  pullback g on D=6            7   3    4    6    2       OK       no
+  pullback g on D=4            8   4    4    6    2       OK       no
+  pullback g on D=4            8   4    4    6    2       OK       no
+  pullback g on D=5            8   4    4    6    2       OK       no
+  pullback g on D=5            8   4    4    7    3       OK       no
+  pullback g on D=6            8   2    6    7    1       OK       no
+  pullback g on D=6            8   2    6    8    2       OK       no
+  pullback g on D=4            9   5    4    6    2       OK      yes
+  pullback g on D=4            9   5    4    7    3       OK      yes
+  pullback g on D=5            9   5    4    8    4       OK      yes
+  pullback g on D=5            9   5    4    6    2       OK      yes
+  pullback g on D=6            9   3    6    9    3       OK       no
+  pullback g on D=6            9   3    6    8    2       OK       no
+
+=== level k=5 : manufactured LARGE-RADICAL gates ===
+  family                       n d_k    D   nu  R/A  2D>=nu?  d_k>n/2
+  pullback g on D=5            7   2    5    7    2       OK       no
+  pullback g on D=5            7   2    5    7    2       OK       no
+  pullback g on D=6            7   2    5    6    1       OK       no
+  pullback g on D=6            7   2    5    6    1       OK       no
+  pullback g on D=5            8   3    5    8    3       OK       no
+  pullback g on D=5            8   3    5    7    2       OK       no
+  pullback g on D=6            8   3    5    7    2       OK       no
+  pullback g on D=6            8   3    5    8    3       OK       no
+  pullback g on D=5            9   4    5    7    2       OK       no
+  pullback g on D=5            9   4    5    7    2       OK       no
+  pullback g on D=6            9   4    5    8    3       OK       no
+  pullback g on D=6            9   4    5    8    3       OK       no
+
+======================================================================
+gates tested: 204,  of which d_k > n/2: 25
+gates with 2(n-d_k) < nu : 1   (the inequality fails in general, rem:levelkdom)
+   pullback D=4 n=9 k=4 d_k=5 D=4 nu=9 dim(R/A)=5 coeffs=[23, 27, 30, 39, 43, 46]
+tightest case (smallest slack 2D-nu): slack=-1 at ('pullback D=4', 9, 4, 5, 4, 9)
+structural identities asserted on every gate:
+  tau_j linear on R^(j);  A(filtration) == A(shift group);  nu == (n-d_k) + dim(R/A)

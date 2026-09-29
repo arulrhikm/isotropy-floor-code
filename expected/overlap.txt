@@ -1,0 +1,35 @@
+SELF-TESTS
+  delta(CCZ) = 7  (expect 7)
+  delta(CCZ+CCZ disjoint) = 13  (expect 13)
+
+(1) LINEAR-OVERLAP LEMMA: pairwise-share-<=1 blocks => d=0
+  fan-out m=1..12 and chains m=1..12: all d=0: True
+  300 random linear 3-hypergraphs (restricted to support): degenerate = 0 (expect 0)
+
+(2) FAN-OUT CONSTRUCTION: weight 4m+3, moments match
+  m   n  weight  4m+3  moments-ok
+   1   3      7     7   True
+   2   5     11    11   True
+   3   7     15    15   True
+   4   9     19    19   True
+   5  11     23    23   True
+   6  13     27    27   True
+   7  15     31    31   True
+   8  17     35    35   True
+   9  19     39    39   True
+  10  21     43    43   True
+  11  23     47    47   True
+  12  25     51    51   True
+  13  27     55    55   True
+  14  29     59    59   True
+  15  31     63    63   True
+  exact decode m=2 (n=5): delta = 11  (expect 11 = 4*2+3)
+  exact decode chain CCZ(012)+CCZ(234): delta = 11  (expect 11)
+
+(3) TWO-SHARED COLLAPSE: blocks {a,b,c_i} share the pair {a,b}
+  m   n  d  n-3  floor 2(n-d)  delta (decode)
+   1   3  0  0       6        7
+   2   4  1  1       6        7
+   3   5  2  2       6        7
+
+ALL PASS

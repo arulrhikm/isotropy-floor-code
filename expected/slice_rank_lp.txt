@@ -1,0 +1,36 @@
+A Delsarte LP that reads the slice-rank spectrum (fact F1), tested against exact delta.
+
+For a t-gate {CNOT,T} representation Y of a pure-cubic gate, C = colspace(Y) is an even
+self-orthogonal code of length t and dimension n - dim K (= n when d = 0), and
+      T(w) = Y^T diag(c(w)) Y,   so   wt(c(w)) >= rank T(w)   for every w in F_2^n.   (F1)
+So the number of w with wt(c(w)) <= r is at most the number of w with rank T(w) <= r: the
+slice-rank spectrum caps the low end of the weight distribution of C.  With the MacWilliams
+identities, C subseteq C^perp (A^perp_r >= A_r), 1 in C^perp and (when d = 0) 1 not in C,
+this is a linear program in the weight distribution A_r.  t_LP = least t for which it is
+feasible.  A valid lower bound on delta; the question is whether it ever beats 2(n-d)+1.
+
+Run:  python rank_spectrum_lp.py            (census n = 4,5,6 with exact delta, then U_2..U_4)
+      python rank_spectrum_lp.py --no-census
+==============================================================================
+   n=4: 2 orbits over 16 cubic forms  (<t>)   [sizes sum to 16]
+
+== n=4: 0 non-degenerate orbits ==
+    orbit size  |f|  floor Gries  t_LP delta  rank spectrum
+   n=5: 3 orbits over 1024 cubic forms  (<t>)   [sizes sum to 1024]
+
+== n=5: 1 non-degenerate orbits ==
+    orbit size  |f|  floor Gries  t_LP delta  rank spectrum
+           868    2     11     9    11    11  {2: 15, 4: 16}
+   n=6: 6 orbits over 1048576 cubic forms  (<t>)   [sizes sum to 1048576]
+
+== n=6: 3 non-degenerate orbits ==
+    orbit size  |f|  floor Gries  t_LP delta  rank spectrum
+        468720    3     13    10    14    15  {2: 7, 4: 56}  <-- beats floor
+        357120    2     13    10    13    13  {2: 14, 4: 49}
+        166656    5     13    14    14    17  {4: 63}  <-- beats floor
+
+== GF(2^k) multiplication oracles ==
+   k=1 n=3 d=0  floor 7  Griesmer[3,4] 7  t_LP 7  rank spectrum {2: 7}
+   k=2 n=6 d=0  floor 13  Griesmer[6,6] 14  t_LP 14  rank spectrum {4: 63}   (delta = 17)
+   k=3 n=9 d=0  floor 19  Griesmer[9,8] 20  t_LP 21  rank spectrum {6: 511}
+   k=4 n=12 d=0  floor 25  Griesmer[12,10] 28  t_LP 29  rank spectrum {8: 4095}

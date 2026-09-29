@@ -1,0 +1,45 @@
+Audit of the two things `tab:atlas` silently assumes.
+
+(C3) EVERY paper result flows through `moments_from_cubic` / `moments_from_quadratic`, but
+     `sat_tcount.validate()` only ever exercises `moments_from_coeff` (the residue path that was
+     checked against the meet-in-the-middle decoder).  Here we check the shortcut constructors
+     against that validated path.
+
+(C1) `cubic_orbit_atlas.atlas` evaluates delta at ONE BFS seed per orbit and then multiplies by the
+     orbit size to get the coverage figure.  Nothing anywhere checks that delta is actually constant
+     along an orbit -- so a wrong drop-rule in `transvection_map` would merge or split orbits and
+     the census would be silently wrong.  Here we apply random L in GL(n,F_2) to each orbit
+     representative and demand that delta, the radical dimension and the derivative rank spectrum
+     are unchanged.
+
+This is the test whose absence was the single largest risk in the census.  It is deliberately built
+on DIFFERENT code from the atlas: the group action here is `cubic_part_after_L`, which expands the
+substitution monomial-by-monomial, whereas the atlas walks transvection generators via
+`transvection_map`.  A bug in either one alone will show up as a mismatch.
+==============================================================================
+
+[action] the GL(n,2) action used by this audit
+   group action vs direct ANF: 90/90 agree   ok
+
+[C3] moment constructors vs the validated residue path
+   moments_from_cubic     vs moments_from_coeff: 120/120   ok
+   moments_from_quadratic vs moments_from_coeff: 120/120   ok
+
+[A1] generalised ceiling W(s) on mixed-degree gates
+   n=4: 250 mixed gates | W(s) < delta VIOLATIONS 0 | W(s)==delta on 142/250 | specialises to w(F) 60/60, to e+odd 60/60   ok
+        bracket-top slack W-delta: {0: 142, 1: 43, 3: 34, 5: 17, 7: 9, 9: 4, 11: 1}
+   n=5: 250 mixed gates | W(s) < delta VIOLATIONS 0 | W(s)==delta on 48/250 | specialises to w(F) 60/60, to e+odd 60/60   ok
+        bracket-top slack W-delta: {0: 48, 1: 29, 2: 12, 3: 22, 4: 18, 5: 23, 6: 22, 7: 13, 8: 27, 9: 8, 10: 16, 11: 1, 12: 3, 13: 6, 14: 1, 15: 1}
+   n=6: 250 mixed gates | W(s) < delta VIOLATIONS 0 | W(s)==delta on 25/250 | specialises to w(F) 60/60, to e+odd 60/60   ok
+        bracket-top slack W-delta: {0: 25, 1: 12, 2: 8, 3: 18, 4: 14, 5: 20, 6: 9, 7: 12, 8: 11, 9: 15, 10: 10, 11: 8, 12: 7, 13: 15, 14: 14, 15: 10, 16: 11, 17: 7, 18: 3, 19: 2, 20: 6, 21: 2, 22: 2, 24: 4, 25: 1, 26: 2, 28: 1, 30: 1}
+
+[C1] orbit-invariance of delta, d and the rank spectrum
+   n=4: 6 transported forms | radical mismatches 0 | spectrum mismatches 0 | DELTA mismatches 0   ok   <t>
+   n=5: 12 transported forms | radical mismatches 0 | spectrum mismatches 0 | DELTA mismatches 0   ok   <t>
+   n=6: 30 transported forms | radical mismatches 0 | spectrum mismatches 0 | DELTA mismatches 0   ok   <t>
+
+==============================================================================
+   action: PASS
+   C3: PASS
+   A1: PASS
+   C1: PASS
