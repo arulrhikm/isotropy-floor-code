@@ -48,7 +48,7 @@ CLAIMS = [
          cmd=[PY, S + "quadratic_locus.py"]),
     dict(id="peel", labels="prop:peel, rem:combined", app="B", tier="standard", timeout=1800,
          what="The peel against 2(n-d*)-r (6.5% / 12.6%), nullity never the strict maximum",
-         cmd=[PY, S + "quadratic_invariant.py"]),
+         cmd=[PY, S + "quadratic_invariant.py", "900"]),
     dict(id="peel_two_sided", labels="prop:peel", app="B", tier="standard", timeout=1800,
          what="Two-sided peel and the low-end crossover on mixed gates",
          cmd=[PY, S + "experiment_mixed_nullity.py"]),

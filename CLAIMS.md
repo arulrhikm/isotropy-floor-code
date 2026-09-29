@@ -18,7 +18,7 @@ This file is generated from `claims.py` by `tools/claims_md.py`.
 | `incremental` | rem:incremental | B | One-gate edits recompute at most 7 residue coordinates and match synthesis from scratch | `python scripts/moment_locality.py --incremental` | quick | reference recorded |
 | `paircharge` | lem:paircharge | B | |A|, |B|, |C| odd on every (representation, edge) pair | `python scripts/paircharge_check.py` | standard | reference recorded |
 | `quadratic_locus` | rem:grading, lem:quadcost, rem:quadopen | B | Grading asymmetry; delta <= 3r/2 fails on pure quadratics; delta <= e+odd holds | `python scripts/quadratic_locus.py` | standard | reference recorded |
-| `peel` | prop:peel, rem:combined | B | The peel against 2(n-d*)-r (6.5% / 12.6%), nullity never the strict maximum | `python scripts/quadratic_invariant.py` | standard | reference recorded |
+| `peel` | prop:peel, rem:combined | B | The peel against 2(n-d*)-r (6.5% / 12.6%), nullity never the strict maximum | `python scripts/quadratic_invariant.py 900` | standard | reference recorded |
 | `peel_two_sided` | prop:peel | B | Two-sided peel and the low-end crossover on mixed gates | `python scripts/experiment_mixed_nullity.py` | standard | reference recorded |
 | `restriction` | lem:restrict, rem:restrictwins | A-B | The restriction floor: 0/400 wins on pure cubics, 300/399 on mixed gates | `python scripts/restriction_floor.py` | standard | reference recorded |
 | `orbit_rank` | rem:quadroutes | K | r = rank Q is a GL-orbit invariant (24,200 basis changes) | `python scripts/orbit_rank.py` | standard | reference recorded |
