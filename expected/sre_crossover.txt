@@ -19,6 +19,9 @@ iff every nonzero derivative is bent), i.e.
 on the derivative-rank profile to find a gate that uses it.
 
    n  max M_2  M_2/n  cap n-1  SRE  2nu+1  SRE-(2nu+1)
+   6   3.6962  0.616        5    9     13           -4
+   7   4.4301  0.633        6   11     15           -4
    8   5.4226  0.678        7   14     17           -3
    9   6.4882  0.721        8   16     19           -3
   10   7.4169  0.742        9   18     21           -3
+  11   8.3391  0.758       10   21     23           -2

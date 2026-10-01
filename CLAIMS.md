@@ -60,7 +60,7 @@ This file is generated from `claims.py` by `tools/claims_md.py`.
 | `eps_rigidity` | lem:sde, lem:liouville, thm:epsrigid | I | sde <= 2N(t+1), the entry gap, the t = 0 dichotomy in exact Z[omega] arithmetic | `python scripts/eps_robust_probe.py` | quick | reference recorded |
 | `purification` | lem:krausprop, prop:paulifeedforward | I | Kraus proportionality and the purification T-ledger | `python scripts/purification_ledger.py` | quick | reference recorded |
 | `sre` | sec:disc, tab:rate | 2, K | Amortized SRE against nullity and the floor on every orbit n <= 6 and the named families | `python scripts/sre_vs_nullity.py --check --families` | standard | reference recorded |
-| `sre_crossover` | op:entropy | 4, K | Hill-climb for an SRE crossing: M2/n reaches 0.760 at n = 11 against 0.830 needed | `python scripts/sre_crossover.py` | standard | reference recorded |
+| `sre_crossover` | op:entropy | 4, K | Hill-climb for an SRE crossing: M2/n reaches 0.758 at n = 11 against 0.868 needed | `python scripts/sre_crossover.py --n 6 7 8 9 10 11` | standard | reference recorded |
 | `layered_nullity` | rem:layerednullity, rem:layeredcap | K | nu adds across a Hadamard layer when B is invertible; structural stabilizer count | `python scripts/nu_layers.py` | standard | reference recorded |
 | `layered_floor` | rem:layeredfloor | K | Flat circuits at h = n obey t >= delta_2n(P') | `python scripts/flat_pathsum.py` | standard | reference recorded |
 | `layered_bracket` | rem:layeredfloor | K | delta_2n(P) = delta(D1 x D2), the two-layer bracket and the O(D) ratio | `python scripts/twolayer_bracket.py` | full | none (full tier) |
