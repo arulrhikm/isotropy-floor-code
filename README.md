@@ -1,7 +1,8 @@
 # isotropy-floor-code
 
-Code and data for the paper "Exact T-counts of Toffoli layers from an isotropy bound"
-(Arul Rhik Mazumder, 2026). Each computational claim in the paper, listed in its Appendix L, can be
+Code and data for the paper "Exact T-counts of CCZ layers from an isotropy bound"
+(Arul Rhik Mazumder, 2026, [arXiv:2610.01024](https://arxiv.org/abs/2610.01024)). Each computational claim in the paper and its
+supplementary notes (listed in [CLAIMS.md](CLAIMS.md)) can be
 rerun here with one command.
 
 The paper's lower bounds are proved analytically. The scripts here check those statements on
@@ -44,7 +45,7 @@ runs the paper quotes are in `results/benchmark/` instead.
 | `expected/` | reference output for every quick and standard claim |
 | `benchmarks/qc/` | the 45 circuits of the Feynman benchmark suite (github.com/meamy/feynman, commit `d2c382a2`) |
 | `benchmarks/run_suite.py` | certifies an optimizer's output on the suite, one circuit per process with a 240-second cutoff |
-| `benchmarks/benchmark_seeds.sh`, `benchmark_teleport.sh` | the two suite runs of Appendix F.2 |
+| `benchmarks/benchmark_seeds.sh`, `benchmark_teleport.sh` | the two suite runs of Appendix D (benchmark certificates) |
 | `results/benchmark/` | the recorded benchmark runs the paper quotes (see `results/README.md`) |
 | `tools/claims_md.py` | regenerates `CLAIMS.md` from `claims.py` |
 
