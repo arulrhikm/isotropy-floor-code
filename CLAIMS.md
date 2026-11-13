@@ -25,7 +25,7 @@ This file is generated from `claims.py` by `tools/claims_md.py`.
 | `overlap` | lem:linearoverlap, thm:fanout, rem:twoshared | C | Linear-overlap radical, a weight-(4m+3) fan-out construction, the shared-pair collapse | `python scripts/overlap_layers.py` | quick | reference recorded |
 | `splice` | lem:splice, prop:splicetree, thm:parccz, thm:fanout | C | Splice constructions: disjoint 6m+1, fan-out and ripple-carry 4m+3, moments matched | `python scripts/splice_engine.py` | quick | reference recorded |
 | `ledger` | rem:ledgerfails | C | Ledger attainment on every linear covering hypergraph n <= 6 (the triangle costs 15 against 13) | `python scripts/ledger_attainment.py` | quick | reference recorded |
-| `merge_forest` | conj:ledger | C | The componentwise count always admits a degree-3 forest routing (194,670 patterns) | `python scripts/merge_forest_exists.py` | standard | reference recorded |
+| `merge_forest` | conj:ledger | C | The componentwise count admits a degree-3 forest routing on every tested pattern (4,544 patterns; exhaustive n<=8, sampled 9<=n<=11) | `python scripts/merge_forest_exists.py` | standard | reference recorded |
 | `controlled` | prop:controlled | C | On controlled unitaries the floor is 2mu (2mu+1 if pure-cubic); Campbell-Howard's count equals exact delta for n <= 6 | `python scripts/floor_vs_controlled.py 1` | standard | reference recorded |
 | `controlled_gap` | prop:controlled | C | floor = 2mu or 2mu+1 and the gap to Campbell-Howard's count on 36,000 random controlled unitaries, n <= 12 | `python scripts/floor_vs_controlled_gap.py` | standard | reference recorded |
 | `qaoa_apps` | prop:univfloor, rem:iqp | D, F | Universal cost-layer floor, generic non-degeneracy, disjoint compression, IQP cores | `python scripts/validate_qaoa_apps.py` | standard | reference recorded |
@@ -38,7 +38,7 @@ This file is generated from `claims.py` by `tools/claims_md.py`.
 | `gf_irreducibles` | rem:gf2mbracket | F | W_k over every irreducible polynomial of degree k <= 7 | `python scripts/gf2m_irred_sweep.py` | quick | reference recorded |
 | `term_count` | prop:termcount, cor:sparsebracket | D | Cost-layer ceiling equals the term count; the O(D) sparse bracket, 7/6 at D = 1 | `python scripts/sparse_bracket_ratio.py` | quick | reference recorded |
 | `brackets` | tab:brackets | D | Two-sided brackets on the application families | `python scripts/bracket_table.py` | standard | reference recorded |
-| `c3_permutations` | thm:transfer, prop:gm | E | Mismatch classifier, semi-Clifford decode = floor, Gottesman-Mochon [15,28] | `python scripts/c3_permutation.py` | quick | reference recorded |
+| `c3_permutations` | thm:transfer, prop:gm | E | Mismatch classifier, semi-Clifford decode = floor, Gottesman-Mochon [15,19] | `python scripts/c3_permutation.py` | quick | reference recorded |
 | `families` | prop:families | F | The standard cubic families: e_k, cycle, star, K_{2,2,2} | `python scripts/q1_catalogue.py` | quick | reference recorded |
 | `line_family` | prop:families | F | Weight-(2n+1) witnesses for the line family, 7 <= n <= 12 | `python scripts/greedy_reduce.py 7 12` | standard | reference recorded |
 | `gf2k_family` | sec:benchintro | F | The twelve GF(2^k) multiplier benchmarks priced as whole circuits | `python scripts/gf2k_family.py` | standard | reference recorded |

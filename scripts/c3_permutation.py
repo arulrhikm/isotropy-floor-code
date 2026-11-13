@@ -159,6 +159,31 @@ def check_u3():
     print(f"  mismatch-free (semi-Clifford)? {mf}  [expect False: U_3 is non-semi-Clifford]")
     print(f"  exact decode: {dec}  naive residue weight (upper bound): {naive}")
     assert d == 0 and floor == 15 and nu == 7 and mf is False
+    # prop:gm upper bound: the CNOT relabelling x0 <- x0+x1+x3, x2 <- x2+x5 (0-indexed;
+    # x1 <- x1+x2+x4, x3 <- x3+x6 in the paper's 1-indexed notation) leaves delta unchanged
+    # and lowers the merged residue weight from 28 to 19.
+    tri = triples_of(tof)
+    def f(x):
+        return sum(x[a] & x[b] & x[c] for a, b, c in tri) & 1
+    def relab(x):
+        y = list(x); y[0] ^= x[1] ^ x[3]; y[2] ^= x[5]; return y
+    tbl = [f(relab(x)) for x in itertools.product((0, 1), repeat=n)]
+    for i in range(n):                       # Moebius transform -> ANF
+        step = 1 << (n - 1 - i)
+        for k in range(len(tbl)):
+            if k & step:
+                tbl[k] ^= tbl[k ^ step]
+    new = [tuple(i for i in range(n) if k >> (n - 1 - i) & 1)
+           for k, v in enumerate(tbl) if v and bin(k).count("1") == 3]
+    cnt = {}
+    for t in new:
+        for r in (1, 2, 3):
+            for y in itertools.combinations(t, r):
+                cnt[y] = cnt.get(y, 0) + 1
+    w = sum(v & 1 for v in cnt.values())
+    print(f"  relabelled cubic part: {len(new)} triples {new}")
+    print(f"  merged residue weight after relabelling (upper bound): {w}")
+    assert w == 19
 
 def check_uk(kmax=5):
     print("\n(D2) U_k family: joint (width, T-floor) region")

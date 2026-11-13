@@ -69,7 +69,7 @@ CLAIMS = [
          what="Ledger attainment on every linear covering hypergraph n <= 6 (the triangle costs 15 against 13)",
          cmd=[PY, S + "ledger_attainment.py"]),
     dict(id="merge_forest", labels="conj:ledger", app="C", tier="standard", timeout=3600,
-         what="The componentwise count always admits a degree-3 forest routing (194,670 patterns)",
+         what="The componentwise count admits a degree-3 forest routing on every tested pattern (4,544 patterns; exhaustive n<=8, sampled 9<=n<=11)",
          cmd=[PY, S + "merge_forest_exists.py"]),
     dict(id="controlled", labels="prop:controlled", app="C", tier="standard", timeout=3600,
          what="On controlled unitaries the floor is 2mu (2mu+1 if pure-cubic); Campbell-Howard's count equals exact delta for n <= 6",
@@ -110,7 +110,7 @@ CLAIMS = [
          cmd=[PY, S + "bracket_table.py"]),
     # ---- Appendix E-F: permutations, catalogue
     dict(id="c3_permutations", labels="thm:transfer, prop:gm", app="E", tier="quick", timeout=900,
-         what="Mismatch classifier, semi-Clifford decode = floor, Gottesman-Mochon [15,28]",
+         what="Mismatch classifier, semi-Clifford decode = floor, Gottesman-Mochon [15,19]",
          cmd=[PY, S + "c3_permutation.py"]),
     dict(id="families", labels="prop:families", app="F", tier="quick", timeout=900,
          what="The standard cubic families: e_k, cycle, star, K_{2,2,2}",

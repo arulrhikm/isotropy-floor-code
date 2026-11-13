@@ -69,4 +69,4 @@ under the BSD licence of the Feynman project (`benchmarks/qc/LICENSE-feynman.md`
 
 ## Citing
 
-See `CITATION.cff`. The arXiv identifier will be added when the paper is posted.
+Please cite the paper, [arXiv:2610.01024](https://arxiv.org/abs/2610.01024). `CITATION.cff` has the details.
