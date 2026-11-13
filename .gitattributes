@@ -1,0 +1,3 @@
+# Benchmark circuits in the Feynman .qc format, not QuakeC
+benchmarks/qc/** linguist-vendored
+*.qc linguist-language=Text
